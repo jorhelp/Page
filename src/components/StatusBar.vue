@@ -1,0 +1,170 @@
+<template>
+    <div class="status">
+        <div class="time">{{ timeString }}</div>
+        <div class="msg-icon"></div>
+        <div class="cellular">
+            <div v-for="idx of 4" class="cellular-item" :key="idx" ref="cellularItems"></div>
+            <!-- <div class="cellular-item cellular-item-1"></div>
+            <div class="cellular-item cellular-item-2"></div>
+            <div class="cellular-item cellular-item-3"></div>
+            <div class="cellular-item cellular-item-4"></div> -->
+        </div>
+        <div class="wifi">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-wifi"></use>
+            </svg>
+        </div>
+        <div class="battery">
+            <div class="battery-body">
+                <div ref="batteryPadding" class="battery-padding"></div>
+            </div>
+            <div class="battery-head"></div>
+        </div>
+    </div>
+</template>
+
+
+<script setup>
+import { getTime } from '../utils'
+import { onMounted, ref } from 'vue'
+import  Bar  from '../store/bar'
+
+
+const timeString = ref(getTime())
+const cellularItems = ref([])
+const batteryPadding = ref(null)
+const barStore = Bar()
+
+function renderBar() {
+    const $dom = batteryPadding.value
+    $dom.style.width = `${barStore.battery}%`
+    if (barStore.battery > 97) $dom.classList.add('full')
+    else $dom.classList.remove('full')
+}
+
+function renderCellular() {
+    cellularItems.value.forEach(($dom, idx) => {
+        if ((idx + 1) <= barStore.cellular)
+            $dom.classList.add('active')
+    })
+}
+
+onMounted(() => {
+    setInterval(() => timeString.value = getTime(), 1000)
+    setInterval(() => {
+        renderCellular()
+        renderBar()
+    }, 1000)
+})
+</script>
+
+
+<style lang="less" scoped>
+.status {
+    padding: 0 @phone-border-radius * .7;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    *+* {
+        margin-left: 1%;
+    }
+
+    .time {
+        font-weight: bold;
+    }
+
+    .msg-icon {
+        flex-grow: 1;
+    }
+
+    .cellular {
+        height: 26%;
+        display: flex;
+        align-items: flex-end;
+        @width: @phone-border-radius * .1;
+
+        .cellular-item {
+            width: @width;
+            background-color: #dedede;
+            border-radius: @width;
+
+            &+.cellular-item {
+                margin-left: @width * .3;
+            }
+
+            &.active {
+                background-color: #fff;
+            }
+
+            &:nth-child(1) {
+                height: 40%;
+            }
+
+            &:nth-child(2) {
+                height: 55%;
+            }
+
+            &:nth-child(3) {
+                height: 75%;
+            }
+
+            &:nth-child(4) {
+                height: 100%;
+            }
+        }
+    }
+
+    .wifi {
+        @height: @phone-border-radius * .35;
+        height: @height;
+        width: @height;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            height: 100%;
+            width: 100%;
+            filter: invert(1);
+        }
+    }
+
+    .battery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .battery-body {
+            @height: @phone-border-radius * .3;
+            width: @height * 1.8;
+            height: @height;
+            border-radius: @phone-border-radius * .07;
+            overflow: hidden;
+            background-color: #eee;
+
+
+            .battery-padding {
+                height: 100%;
+                width: 30%;
+                background-color: #fff;
+
+                &.low {
+                    background-color: #f00;
+                }
+
+                &.charge {
+                    background-color: #0f0;
+                }
+            }
+        }
+
+        .battery-head {
+            @height: @phone-border-radius * .12;
+            width: @height * .4;
+            height: @height;
+            background-color: #aaa;
+            border-radius: 0 (@phone-border-radius * .05) (@phone-border-radius * .05) 0;
+        }
+    }
+}
+</style>

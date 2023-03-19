@@ -1,0 +1,94 @@
+@phone-ratio: 2.05;
+@phone-height: 80vh;
+@phone-width: (@phone-height / @phone-ratio);
+@phone-thick: (@phone-width / 10);
+@phone-border-radius: (@phone-width / 7.5);
+@phone-border-screen-width: (@phone-width / 40);
+@phone-border-screen: @phone-border-screen-width solid #333;
+@phone-border-back: (@phone-width / 150) solid #eee;
+@phone-antenna-color: #b5b5b5;
+
+
+/* js 无法使用 less 的全局变量 */
+:root {
+    font-size: 1.8vh;
+    --phone-width: 100vw;
+    --phone-height: 100vh;
+    --phone-thick: @phone-thick;
+    --phone-border-radius: @phone-border-radius;
+    --phone-border-screen-width: 0px;
+    --app-container-padding-x: calc(var(--phone-width) * .05);
+    --app-container-padding-y: calc(var(--phone-height) * .03);
+    --app-width: calc((var(--phone-width) * .9 - var(--phone-border-screen-width) * 2) / 4);
+    --bg-color: hsl(0, 15%, 90%);
+    --bg__item-color1: hsl(191, 90%, 70%);
+    --bg__item-color2: hsl(350, 90%, 70%);
+
+    @media screen and (min-width: 440px) {
+        font-size: 1.5vh;
+        --phone-height: 80vh;
+        --phone-width: (@phone-height / @phone-ratio);
+        --phone-border-screen-width: @phone-border-screen-width;
+    }
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    perspective: calc(99vh * 3);
+    transform-style: preserve-3d;
+    color: #fff;
+    // background-color: #eee;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+#app {
+    transform-style: preserve-3d;
+    transition: all .2s;
+}
+
+.el-badge__content {
+    height: 2.4vh;
+    width: 2.4vh;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.swiper-bullet-active {
+    background-color: #fff;
+    opacity: .8;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.phone-antenna-1 {
+    .absolute;
+    width: @phone-thick;
+    height: (@phone-thick / 8);
+    background-color: @phone-antenna-color;
+}
+
+.phone-antenna-2 {
+    .absolute;
+    height: @phone-thick;
+    width: (@phone-thick / 8);
+    background-color: @phone-antenna-color;
+}
