@@ -1,11 +1,7 @@
 <template>
     <div class="dock">
-        <template v-for="app of JAppsStore.apps" :key="app.id">
-            <j-app v-if="app.position === JAppsStore.position.dock" :class="app.size" :msg="app.msg">
-                <template #app-icon>
-                    <img v-show="app.icon" :src="app.icon" alt="">
-                </template>
-            </j-app>
+        <template v-for="app of appStore.apps" :key="app.id">
+            <j-app v-if="app.position === appStore.position.dock" :app="app" name-hide />
         </template>
     </div>
 </template>
@@ -13,9 +9,9 @@
 
 <script setup>
 import JApp from './JApp.vue'
-import JApps from '../store/japp'
+import useAppStore from '../store/japp'
 
-const JAppsStore = JApps()
+const appStore = useAppStore()
 </script>
 
 
@@ -28,9 +24,5 @@ const JAppsStore = JApps()
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .app {
-        position: relative;
-        top: 18%;
-    }
 }
 </style>

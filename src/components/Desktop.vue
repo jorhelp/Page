@@ -1,50 +1,31 @@
 <template>
     <swiper :slides-per-view="1" :pagination="{ clickable: true, bulletActiveClass: 'swiper-bullet-active' }"
         :modules="modules">
+
         <swiper-slide>
             <div class="container">
-                <template v-for="app of JAppsStore.apps" :key="app.id">
-                    <j-app v-if="app.position === JAppsStore.position.b1" :class="app.size" :msg="app.msg">
-                        <template #app-icon>
-                            <img v-show="app.icon" :src="app.icon" alt="">
-                        </template>
-                        <template #app-name>
-                            {{ app.name }}
-                        </template>
-                    </j-app>
+                <template v-for="app of appStore.apps" :key="app.id">
+                    <j-app v-if="app.position === appStore.position.b1" :app="app" />
                 </template>
             </div>
         </swiper-slide>
 
         <swiper-slide>
             <div class="container">
-                <template v-for="app of JAppsStore.apps" :key="app.id">
-                    <j-app v-if="app.position === JAppsStore.position.b2" :class="app.size" :msg="app.msg">
-                        <template #app-icon>
-                            <img :src="app.icon" alt="">
-                        </template>
-                        <template #app-name>
-                            {{ app.name }}
-                        </template>
-                    </j-app>
+                <template v-for="app of appStore.apps" :key="app.id">
+                    <j-app v-if="app.position === appStore.position.b2" :app="app" />
                 </template>
             </div>
         </swiper-slide>
 
         <swiper-slide>
             <div class="container">
-                <template v-for="app of JAppsStore.apps" :key="app.id">
-                    <j-app v-if="app.position === JAppsStore.position.b3" :class="app.size" :msg="app.msg">
-                        <template #app-icon>
-                            <img :src="app.icon" alt="">
-                        </template>
-                        <template #app-name>
-                            {{ app.name }}
-                        </template>
-                    </j-app>
+                <template v-for="app of appStore.apps" :key="app.id">
+                    <j-app v-if="app.position === appStore.position.b3" :app="app" />
                 </template>
             </div>
         </swiper-slide>
+
     </swiper>
 </template>
 
@@ -55,9 +36,9 @@ import { Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import JApp from './JApp.vue'
-import JApps from '../store/japp'
+import useAppStore from '../store/japp'
 
-const JAppsStore = JApps()
+const appStore = useAppStore()
 const modules = [Pagination]
 </script>
 

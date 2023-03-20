@@ -1,27 +1,51 @@
 <template>
-    <div class="app">
-        <el-badge :value="badgeValue" :max="99">
+    <div ref="$app" class="app" :class="app.size" @click="appClick()">
+        <el-badge :value="app.msg.length === 0 ? '' : app.msg.length" :max="99">
             <div class="app-icon">
-                <slot name="app-icon"></slot>
+                <img v-show="app.icon" :src="app.icon" alt="">
             </div>
         </el-badge>
-        <div class="app-name">
-            <slot name="app-name"></slot>
+        <div v-if="!nameHide" class="app-name">
+            {{ app.name }}
         </div>
     </div>
 </template>
 
 
 <script setup>
-import { computed } from 'vue'
+import { ref, toRefs } from 'vue'
+import useAppStore from '../store/japp'
+import { useRouter } from 'vue-router'
 
 
+const $app = ref(null)
+const appStore = useAppStore()
 const props = defineProps({
-    msg: Array,
+    app: Object,
+    nameHide: {
+        type: Boolean,
+        default: false
+    }
 })
-const badgeValue = computed(() => {
-    return props.msg.length === 0 ? '' : props.msg.length
-})
+const { app, nameHide } = toRefs(props)
+const router = useRouter()
+
+function appClick() {
+    // 清除消息圆点
+    app.value.msg = []
+    // 设置 transform-origin
+    const $container = document.querySelector('.app__content__container')
+    const appRect = $app.value.getBoundingClientRect()
+    const _x = appRect.left + appRect.width / 2
+    const _y = appRect.top + appRect.height / 2
+    $container.style.transformOrigin = `${_x}px ${_y}px`
+    // 开启 app 盒子
+    appStore.toggleAppContent(true)
+    // 填充盒子
+    router.push(app.value.content)
+    // 颜色
+    document.querySelector(':root').classList.add('invert')
+}
 </script>
 
 
@@ -41,6 +65,7 @@ const badgeValue = computed(() => {
     }
 
     @app-name-width: 2em;
+
     .app-name {
         height: @app-name-width;
         transform: scale(.8);

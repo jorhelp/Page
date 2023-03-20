@@ -8,7 +8,7 @@
         <div class="big-hole"></div>
     </div>
     <div class="logo">
-        <img src="../assets/img/jor-logo@128x128.png" alt="logo" class="logo-img">
+        <img src="/img/jor-logo@200x200.png" alt="logo" class="logo-img">
         <h1> Jorhelp </h1>
     </div>
 </template>

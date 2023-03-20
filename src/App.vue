@@ -3,19 +3,19 @@
         <div class="absolute phone__screen">
             <phone-screen></phone-screen>
         </div>
-        <div class="absolute phone__back">
+        <div v-if="isPC" class="absolute phone__back">
             <phone-back></phone-back>
         </div>
-        <div class="absolute phone__side phone__side--left">
+        <div v-if="isPC" class="absolute phone__side phone__side--left">
             <phone-side-left></phone-side-left>
         </div>
-        <div class="absolute phone__side phone__side--right">
+        <div v-if="isPC" class="absolute phone__side phone__side--right">
             <phone-side-right></phone-side-right>
         </div>
-        <div class="absolute phone__side phone__side--top">
+        <div v-if="isPC" class="absolute phone__side phone__side--top">
             <phone-side-top></phone-side-top>
         </div>
-        <div class="absolute phone__side phone__side--bottom">
+        <div v-if="isPC" class="absolute phone__side phone__side--bottom">
             <phone-side-bottom></phone-side-bottom>
         </div>
     </div>
@@ -29,41 +29,45 @@ import PhoneSideTop from './components/PhoneSideTop.vue'
 import PhoneSideBottom from './components/PhoneSideBottom.vue'
 import PhoneBack from './components/PhoneBack.vue'
 import PhoneScreen from './components/PhoneScreen.vue'
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 import { Drag, isMobile, drawArc } from './utils'
+
+
+const isPC = computed(() => !isMobile())
+console.log(isPC.value)
 
 
 onMounted(() => {
     // padding
-    const commonOption = {
-        $father: document.querySelector('.phone'),
-        radius: 'var(--phone-border-radius)',
-        height: 'var(--phone-thick)',
-        color: '#fefefe',
-        count: 50,
-        deg: 90,
-    }
-    drawArc({
-        ...commonOption,
-        classList: ['absolute', 'phone__padding--1']
-    })
-    drawArc({
-        ...commonOption,
-        classList: ['absolute', 'phone__padding--2']
-    })
-    drawArc({
-        ...commonOption,
-        classList: ['absolute', 'phone__padding--3']
-    })
-    drawArc({
-        ...commonOption,
-        classList: ['absolute', 'phone__padding--4']
-    })
+    if (isPC.value) {
+        const commonOption = {
+            $father: document.querySelector('.phone'),
+            radius: 'var(--phone-border-radius)',
+            height: 'var(--phone-thick)',
+            color: '#fefefe',
+            count: 50,
+            deg: 90,
+        }
+        drawArc({
+            ...commonOption,
+            classList: ['absolute', 'phone__padding--1']
+        })
+        drawArc({
+            ...commonOption,
+            classList: ['absolute', 'phone__padding--2']
+        })
+        drawArc({
+            ...commonOption,
+            classList: ['absolute', 'phone__padding--3']
+        })
+        drawArc({
+            ...commonOption,
+            classList: ['absolute', 'phone__padding--4']
+        })
 
-    // 支持 3d 拖拽
-    const appDrag = new Drag('#app', 'body')
+        // 支持 3d 拖拽
+        const appDrag = new Drag('#app', 'body')
 
-    if (!isMobile()) {
         // show yourself
         const previousTransition = appDrag.$target.style.transition
         const delay = 2

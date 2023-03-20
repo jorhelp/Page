@@ -11,7 +11,9 @@
 
 /* js 无法使用 less 的全局变量 */
 :root {
+    color: #fff;
     font-size: 1.8vh;
+    transition: all .3s;
     --phone-width: 100vw;
     --phone-height: 100vh;
     --phone-thick: @phone-thick;
@@ -23,6 +25,7 @@
     --bg-color: hsl(0, 15%, 90%);
     --bg__item-color1: hsl(191, 90%, 70%);
     --bg__item-color2: hsl(350, 90%, 70%);
+    --status-bar-color: #fff;
 
     @media screen and (min-width: 440px) {
         font-size: 1.5vh;
@@ -30,7 +33,13 @@
         --phone-width: (@phone-height / @phone-ratio);
         --phone-border-screen-width: @phone-border-screen-width;
     }
+
+    &.invert {
+        color: #222;
+        --status-bar-color: #222;
+    }
 }
+
 
 body {
     height: 100vh;
@@ -40,14 +49,13 @@ body {
     align-items: center;
     perspective: calc(99vh * 3);
     transform-style: preserve-3d;
-    color: #fff;
-    // background-color: #eee;
+    background-color: #fff;
 }
 
 img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 #app {
@@ -91,4 +99,24 @@ img {
     height: @phone-thick;
     width: (@phone-thick / 8);
     background-color: @phone-antenna-color;
+}
+
+
+// vue transition
+.app-enter-active {
+    animation: app-in 0.5s ease-in;
+}
+
+.app-leave-active {
+    animation: app-in 0.5s ease-out reverse;
+}
+
+@keyframes app-in {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

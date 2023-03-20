@@ -1,13 +1,13 @@
 <template>
     <div class="status">
         <div class="time">{{ timeString }}</div>
-        <div class="msg-icon"></div>
+        <div class="msg-icon">
+            <div v-for="app of appWithMsg" :key="app.id" class="app-with-msg">
+                <img :src="app.icon" alt="">
+            </div>
+        </div>
         <div class="cellular">
             <div v-for="idx of 4" class="cellular-item" :key="idx" ref="cellularItems"></div>
-            <!-- <div class="cellular-item cellular-item-1"></div>
-            <div class="cellular-item cellular-item-2"></div>
-            <div class="cellular-item cellular-item-3"></div>
-            <div class="cellular-item cellular-item-4"></div> -->
         </div>
         <div class="wifi">
             <svg class="icon" aria-hidden="true">
@@ -26,21 +26,19 @@
 
 <script setup>
 import { getTime } from '../utils'
-import { onMounted, ref } from 'vue'
-import  Bar  from '../store/bar'
+import { onMounted, ref, watch } from 'vue'
+import useBarStore from '../store/bar'
+import useAppStore from '../store/japp'
 
 
 const timeString = ref(getTime())
 const cellularItems = ref([])
 const batteryPadding = ref(null)
-const barStore = Bar()
+const barStore = useBarStore()
+const appStore = useAppStore()
 
-function renderBar() {
-    const $dom = batteryPadding.value
-    $dom.style.width = `${barStore.battery}%`
-    if (barStore.battery > 97) $dom.classList.add('full')
-    else $dom.classList.remove('full')
-}
+const appWithMsg = ref(appStore.apps.filter(app => app.msg.length !== 0))
+watch(appStore, () => appWithMsg.value = appStore.apps.filter(app => app.msg.length !== 0))
 
 function renderCellular() {
     cellularItems.value.forEach(($dom, idx) => {
@@ -49,11 +47,18 @@ function renderCellular() {
     })
 }
 
+function renderBattery() {
+    const $dom = batteryPadding.value
+    $dom.style.width = `${barStore.battery}%`
+    if (barStore.battery > 97) $dom.classList.add('full')
+    else $dom.classList.remove('full')
+}
+
 onMounted(() => {
     setInterval(() => timeString.value = getTime(), 1000)
     setInterval(() => {
         renderCellular()
-        renderBar()
+        renderBattery()
     }, 1000)
 })
 </script>
@@ -64,7 +69,7 @@ onMounted(() => {
     padding: 0 @phone-border-radius * .7;
     display: flex;
     align-items: center;
-    color: #fff;
+    z-index: 666;
 
     *+* {
         margin-left: 1%;
@@ -75,7 +80,19 @@ onMounted(() => {
     }
 
     .msg-icon {
+        @height: @phone-border-radius * .35;
         flex-grow: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        .app-with-msg {
+            height: @height;
+            width: @height;
+            background-color: #fff;
+            border-radius: 30%;  // 隐藏白角
+        }
     }
 
     .cellular {
@@ -86,7 +103,7 @@ onMounted(() => {
 
         .cellular-item {
             width: @width;
-            background-color: #dedede;
+            background-color: #eee;
             border-radius: @width;
 
             &+.cellular-item {
@@ -94,7 +111,7 @@ onMounted(() => {
             }
 
             &.active {
-                background-color: #fff;
+                background-color: var(--status-bar-color);
             }
 
             &:nth-child(1) {
@@ -121,12 +138,6 @@ onMounted(() => {
         width: @height;
         display: flex;
         align-items: center;
-
-        .icon {
-            height: 100%;
-            width: 100%;
-            filter: invert(1);
-        }
     }
 
     .battery {
@@ -146,7 +157,7 @@ onMounted(() => {
             .battery-padding {
                 height: 100%;
                 width: 30%;
-                background-color: #fff;
+                background-color: var(--status-bar-color);
 
                 &.low {
                     background-color: #f00;
@@ -159,11 +170,12 @@ onMounted(() => {
         }
 
         .battery-head {
-            @height: @phone-border-radius * .12;
-            width: @height * .4;
+            @height: @phone-border-radius * .11;
+            width: @height * .36;
             height: @height;
+            margin-left: @height * .3;
             background-color: #aaa;
-            border-radius: 0 (@phone-border-radius * .05) (@phone-border-radius * .05) 0;
+            border-radius: 0 (@phone-border-radius * .08) (@phone-border-radius * .08) 0;
         }
     }
 }

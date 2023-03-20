@@ -18,8 +18,15 @@ function debounce(func, delay) {
 }
 
 function isMobile() {
-    let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
-    return flag
+    try {
+        // 先根据屏幕尺寸判断
+        const flag = window.matchMedia("(max-width: 440px)").matches
+        return flag
+    } catch (error) {
+        // 不行的话再根据 userAgent 判断
+        const flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+        return flag
+    }
 }
 
 class Drag {

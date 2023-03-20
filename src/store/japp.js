@@ -10,7 +10,7 @@ const POSITION = {
     b5: 'body5',
     dock: 'dock',
 }
-const iconBaseUrl = '/src/assets/img/'
+const iconBaseUrl = '/img/'
 
 class JApp {
     constructor(options) {
@@ -20,6 +20,7 @@ class JApp {
         this.size = options.size || ''
         this.msg = options.msg || []
         this.position = options.position
+        this.content = options.content || {name: 'default'}
     }
 }
 
@@ -150,7 +151,9 @@ const apps = [
     new JApp({
         name: '设置',
         icon: iconBaseUrl + 'settings-192x192-2365240.png',
-        position: POSITION.dock
+        position: POSITION.dock,
+        msg: ['test'],
+        content: {name: 'setting'}
     }),
     new JApp({
         name: '微信',
@@ -171,14 +174,19 @@ const apps = [
     }),
 ]
 
-const JApps = defineStore('app', {
-    state: () => {
-        return {
-            position: POSITION,
-            apps
-        }
+const useAppStore = defineStore('app', {
+    state: () => ({
+        position: POSITION,
+        apps,
+        isAppContentShow: false,
+    }),
+    actions: {
+        toggleAppContent(val = undefined) {
+            if (val) this.isAppContentShow = val
+            else this.isAppContentShow = !this.isAppContentShow
+        },
     }
 })
 
 
-export default JApps
+export default useAppStore

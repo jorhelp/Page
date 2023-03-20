@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 
-const Bar = defineStore('bar', {
+const useBarStore = defineStore('bar', {
     state: () => {
         return {
             battery: 80,
@@ -10,4 +10,4 @@ const Bar = defineStore('bar', {
     }
 })
 
-export default Bar
+export default useBarStore

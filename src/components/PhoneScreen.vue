@@ -7,6 +7,9 @@
         <status-bar />
         <desktop />
         <dock />
+        <transition name="app">
+            <app-content v-show="appStore.isAppContentShow" />
+        </transition>
     </div>
 </template>
 
@@ -15,6 +18,11 @@
 import StatusBar from './StatusBar.vue'
 import Desktop from './Desktop.vue'
 import Dock from './Dock.vue'
+import AppContent from './AppContent.vue'
+import useAppStore from '../store/japp'
+
+
+const appStore = useAppStore()
 </script>
 
 
@@ -82,5 +90,15 @@ import Dock from './Dock.vue'
     display: grid;
     font-size: 1rem;
     grid-template-rows: @phone-border-radius 1fr calc(var(--app-width) * 1.2);
+
+    .app-content {
+        .absolute;
+        z-index: 66;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
 }
 </style>
