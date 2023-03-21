@@ -33,11 +33,15 @@ const router = useRouter()
 function appClick() {
     // 清除消息圆点
     app.value.msg = []
-    // 设置 transform-origin
+    // 设置 transform-origin (app 相对于手机边框的位置)
     const $container = document.querySelector('.app__content__container')
+    const $phone = document.querySelector('.phone')
+    const phoneRect = $phone.getBoundingClientRect()
     const appRect = $app.value.getBoundingClientRect()
-    const _x = appRect.left + appRect.width / 2
-    const _y = appRect.top + appRect.height / 2
+    const phoneX = phoneRect.left
+    const phoneY = phoneRect.top
+    const _x = appRect.left - phoneX + appRect.width / 2
+    const _y = appRect.top - phoneY + appRect.height / 2
     $container.style.transformOrigin = `${_x}px ${_y}px`
     // 开启 app 盒子
     appStore.toggleAppContent(true)

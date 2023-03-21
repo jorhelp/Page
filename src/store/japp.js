@@ -159,13 +159,15 @@ const apps = [
         name: '微信',
         icon: iconBaseUrl + 'wechat.png',
         position: POSITION.dock,
-        msg: ['hi']
+        msg: ['hi'],
+        content: {name: 'wechat'}
     }),
     new JApp({
         name: '支付宝',
         icon: iconBaseUrl + 'zhifubao.png',
         position: POSITION.dock,
-        msg: ['hello']
+        msg: ['hello'],
+        content: {name: 'zhifubao'}
     }),
     new JApp({
         name: '音乐',

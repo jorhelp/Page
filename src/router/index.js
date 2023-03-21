@@ -21,6 +21,16 @@ const routes = [
                 path: 'setting',
                 component: () => import('../pages/Setting.vue')
             },
+            {
+                name: 'wechat',
+                path: 'wechat',
+                component: () => import('../pages/WeChat.vue')
+            },
+            {
+                name: 'zhifubao',
+                path: 'zhifubao',
+                component: () => import('../pages/ZhiFuBao.vue')
+            },
         ]
     }
 ]
