@@ -53,8 +53,8 @@ function handleClose() {
 
     .app__content {
         padding-top: @phone-border-radius;
-        padding-left: @phone-border-radius * .5;
-        padding-right: @phone-border-radius * .5;
+        padding-left: @phone-border-radius * .3;
+        padding-right: @phone-border-radius * .3;
         box-sizing: border-box;
         height: 100%;
     }

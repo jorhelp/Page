@@ -2,7 +2,7 @@
     <div class="status">
         <div class="time">{{ timeString }}</div>
         <div class="msg-icon">
-            <div v-for="app of appWithMsg" :key="app.id" class="app-with-msg">
+            <div v-for="app of appStore.appWithMsg" :key="app.id" class="app-with-msg">
                 <img :src="app.icon" alt="">
             </div>
         </div>
@@ -26,7 +26,7 @@
 
 <script setup>
 import { getTime } from '../utils'
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import useBarStore from '../store/bar'
 import useAppStore from '../store/japp'
 
@@ -36,9 +36,6 @@ const cellularItems = ref([])
 const batteryPadding = ref(null)
 const barStore = useBarStore()
 const appStore = useAppStore()
-
-const appWithMsg = ref(appStore.apps.filter(app => app.msg.length !== 0))
-watch(appStore, () => appWithMsg.value = appStore.apps.filter(app => app.msg.length !== 0))
 
 function renderCellular() {
     cellularItems.value.forEach(($dom, idx) => {

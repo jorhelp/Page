@@ -1,25 +1,25 @@
 <template>
-    <div class="container">
-        Still developing...
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-chuizi"></use>
-        </svg>
-    </div>
+    <el-empty>
+        <template class="empty-img" #image>
+            <img src="/img/empty.gif" alt="">
+        </template>
+        <template #description>
+            Still developing...
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-chuizi"></use>
+            </svg>
+        </template>
+    </el-empty>
 </template>
 
 
 <style lang="less" scoped>
-.container {
-    z-index: -1;
-    font-size: 1.2rem;
-    width: 100%;
+.el-empty {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    width: 100%;
     .icon {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
 }
+
 </style>

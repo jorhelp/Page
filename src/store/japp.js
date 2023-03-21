@@ -187,6 +187,9 @@ const useAppStore = defineStore('app', {
             if (val) this.isAppContentShow = val
             else this.isAppContentShow = !this.isAppContentShow
         },
+    },
+    getters: {
+        appWithMsg: state => state.apps.filter(app => app.msg.length !== 0)
     }
 })
 
