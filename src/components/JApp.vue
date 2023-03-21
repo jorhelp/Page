@@ -35,17 +35,21 @@ function appClick() {
     app.value.msg = []
     // 设置 transform-origin (app 相对于手机边框的位置)
     const $container = document.querySelector('.app__content__container')
-    const $phone = document.querySelector('.phone')
-    const phoneRect = $phone.getBoundingClientRect()
     const appRect = $app.value.getBoundingClientRect()
-    const phoneX = phoneRect.left
-    const phoneY = phoneRect.top
-    const _x = appRect.left - phoneX + appRect.width / 2
-    const _y = appRect.top - phoneY + appRect.height / 2
+    let _x = $app.value.offsetLeft + appRect.width / 2
+    let _y = $app.value.offsetTop + appRect.height / 2
+    if (app.value.position === appStore.position.dock) {
+        const $parent = $app.value.offsetParent
+        _x += $parent.offsetLeft
+        _y += $parent.offsetTop
+    } else {
+        const $desktop = document.querySelector('.desktop')
+        _y += $desktop.offsetTop
+    }
     $container.style.transformOrigin = `${_x}px ${_y}px`
     // 开启 app 盒子
     appStore.toggleAppContent(true)
-    // 填充盒子
+    // 设置路由填充盒子
     router.push(app.value.content)
     // 颜色
     document.querySelector(':root').classList.add('invert')

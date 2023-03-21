@@ -77,6 +77,7 @@ onMounted(() => {
 
     .time {
         font-weight: bold;
+        font-size: 1.2rem;
     }
 
     .msg-icon {
@@ -92,6 +93,10 @@ onMounted(() => {
             width: @height;
             background-color: #fff;
             border-radius: 30%;  // 隐藏白角
+            overflow: hidden;
+            img {
+                display: block;
+            }
         }
     }
 

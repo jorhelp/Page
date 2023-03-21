@@ -23,7 +23,7 @@
     --app-container-padding-y: calc(var(--phone-height) * .03);
     --app-width: calc((var(--phone-width) * .9 - var(--phone-border-screen-width) * 2) / 4);
     --bg-color: hsl(0, 15%, 90%);
-    --bg__item-color1: hsl(191, 90%, 70%);
+    --bg__item-color1: hsla(264, 93%, 76%, 0.541);
     --bg__item-color2: hsl(350, 90%, 70%);
     --status-bar-color: #fff;
 
@@ -69,6 +69,9 @@ img {
     border-radius: 50%;
     padding: 0;
 }
+.el-scrollbar__view {
+    height: 100%;
+}
 
 .icon {
     width: 1em;
@@ -81,6 +84,10 @@ img {
 .swiper-bullet-active {
     background-color: #fff;
     opacity: .8;
+}
+.swiper-pagination-bullet {
+    width: @phone-border-radius * .2;
+    height: @phone-border-radius * .2;
 }
 
 .absolute {
@@ -108,15 +115,21 @@ img {
 }
 
 .app-leave-active {
-    animation: app-in 0.5s ease-in reverse;
+    animation: app-in 0.5s linear reverse;
 }
 
 @keyframes app-in {
     0% {
         transform: scale(0);
+        border-radius: @phone-border-radius;
+    }
+
+    80% {
+        border-radius: @phone-border-radius;
     }
 
     100% {
         transform: scale(1);
+        border-radius: 0;
     }
 }

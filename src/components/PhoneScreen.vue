@@ -5,7 +5,7 @@
     </div>
     <div class="fg">
         <status-bar />
-        <desktop />
+        <desktop class="desktop" />
         <dock />
         <transition name="app">
             <app-content v-show="appStore.isAppContentShow" />
@@ -30,20 +30,28 @@ const appStore = useAppStore()
 @keyframes phone__bg-animation1 {
     from {
         top: -15%;
+        left: 10%;
+        transform: rotateZ(20deg);
     }
 
     to {
         top: 20%;
+        left: 20%;
+        transform: rotateZ(100deg);
     }
 }
 
 @keyframes phone__bg-animation2 {
     from {
-        top: 30%;
+        top: 20%;
+        left: 10%;
+        transform: rotateZ(20deg);
     }
 
     to {
-        top: 70%;
+        top: 50%;
+        left: 20%;
+        transform: rotateZ(-100deg);
     }
 }
 
@@ -62,21 +70,17 @@ const appStore = useAppStore()
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        transform-origin: center top;
-        filter: blur(3rem);
+        transform-origin: center center;
+        filter: blur(5rem);
 
         &.bg__item--1 {
             background: var(--bg__item-color1);
-            transform: rotate(50deg);
-            left: 30%;
-            animation: phone__bg-animation1 5s ease alternate infinite;
+            animation: phone__bg-animation1 5s ease-in-out alternate infinite;
         }
 
         &.bg__item--2 {
             background: var(--bg__item-color2);
-            transform: rotate(-30deg);
-            left: 0;
-            animation: phone__bg-animation2 5s ease-in-out alternate infinite;
+            animation: phone__bg-animation2 8s alternate infinite;
         }
     }
 }
