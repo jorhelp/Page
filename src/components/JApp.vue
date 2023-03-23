@@ -49,10 +49,10 @@ function appClick() {
     $container.style.transformOrigin = `${_x}px ${_y}px`
     // 开启 app 盒子
     appStore.toggleAppContent(true)
-    // 设置路由填充盒子
-    router.push(app.value.content)
     // 颜色
     document.querySelector(':root').classList.add('invert')
+    // 设置路由填充盒子
+    setTimeout(() => router.push(app.value.content), 500)
 }
 </script>
 

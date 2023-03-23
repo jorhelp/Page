@@ -33,7 +33,9 @@ const apps = [
     new JApp({
         name: '照片',
         icon: iconBaseUrl + 'photos-128x128-2365244.png',
-        position: POSITION.b1
+        position: POSITION.b1,
+        msg: ['test'],
+        content: {name: 'image'}
     }),
     new JApp({
         name: '相机',
@@ -91,7 +93,6 @@ const apps = [
         name: '博客',
         icon: iconBaseUrl + 'podcasts-192x192-2365243.png',
         position: POSITION.b1,
-        msg: ['heihei']
     }),
     new JApp({
         name: '健康',

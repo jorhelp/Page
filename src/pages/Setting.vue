@@ -109,17 +109,19 @@ const barStore = useBarStore()
     .head {
         display: flex;
         align-items: center;
+        font-weight: bold;
+        font-size: 1.3rem;
 
         .head-icon,
         .icon {
-            width: @phone-border-radius * .8;
+            width: @phone-border-radius * 1.3;
             font-size: @phone-border-radius * .8;
             margin-right: @phone-border-radius * .2;
         }
     }
 
     .card-item {
-        @height: @phone-border-radius * .5;
+        @height: @phone-border-radius;
         height: @height * 1.3;
         display: flex;
         align-items: center;

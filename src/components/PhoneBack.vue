@@ -9,7 +9,7 @@
     </div>
     <div class="logo">
         <img src="/img/jor-logo@200x200.png" alt="logo" class="logo-img">
-        <h1> Jorhelp </h1>
+        <h1> jPhone </h1>
     </div>
 </template>
 
@@ -116,6 +116,7 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0) rotateY(180deg);
     text-align: center;
+    color: #fff;
 
     h1 {
         display: block;

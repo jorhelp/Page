@@ -17,6 +17,11 @@ const routes = [
                 component: () => import('../pages/Default.vue')
             },
             {
+                name: 'image',
+                path: 'image',
+                component: () => import('../pages/Image.vue')
+            },
+            {
                 name: 'setting',
                 path: 'setting',
                 component: () => import('../pages/Setting.vue')
