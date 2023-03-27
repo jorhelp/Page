@@ -15,7 +15,6 @@
                 </div>
             </div>
         </a>
-        <a href="/projects/keyboard/index.html" target="_blank">test</a>
     </div>
 </template>
 
@@ -30,6 +29,12 @@ const blogs = [
         title: 'Ingram 一个网络摄像头漏洞扫描工具',
         date: '2022-04-21',
         url: '//github.com/jorhelp/Ingram',
+    },
+    {
+        img: '/img/blog/keyboard.webp',
+        title: '我的机械键盘',
+        date: '2023-01-15',
+        url: '/projects/keyboard/index.html',
     },
     {
         img: '/img/blog/eggnn.webp',
