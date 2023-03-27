@@ -22,7 +22,8 @@ const appStore = useAppStore()
 
 <style lang="less" scoped>
 .msg-box {
-    @height: @phone-border-radius * 1.5;
+    // @height: @phone-border-radius * 1.5;
+    @height: 4.5rem;
     @padding: @height * .15;
     .absolute;
     z-index: 666;
@@ -43,6 +44,8 @@ const appStore = useAppStore()
         width: @height - @padding * 2;
         float: left;
         margin-right: @padding;
+        background-color: #fff;
+        border-radius: @height * .2;
 
         img {
             height: 100%;

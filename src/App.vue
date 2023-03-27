@@ -40,7 +40,7 @@ onMounted(() => {
         }, 1000 * delay * 5)
     } else {
         appStore.setMsgApp(app1)
-        app1.msg.push('您已更新到 jPhone 1.0!')
+        app1.msg.push('您已更新到 JOS 1.0!')
     }
     // statusBar
     setInterval(() => {
