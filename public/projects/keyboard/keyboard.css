@@ -1,0 +1,254 @@
+* { margin: 0; padding: 0; position: relative; box-sizing: border-box;}
+:root {
+    --keyboard-x: 70vw;
+    --keyboard-y: calc(70vw / 16 * 5);
+    --keyboard-bottom-z: calc(var(--keyboard-y) / 5);
+    --key-x: calc(var(--keyboard-y) / 5);
+    --x: calc(var(--key-x) * .7);
+    --h: calc(var(--x) * .8);
+    --sin10: 0.1736;
+    --cos10: 0.9848;
+    --tan10: 0.1763;
+    --sin20: 0.3420;
+    --cos20: 0.9397;
+    --tan20: 0.3640;
+    --slope0: calc(var(--h) / var(--cos10));
+    --short0: calc(var(--h) * var(--tan10) / var(--cos10));
+    --slope1: calc(var(--h) / var(--cos20));
+    --short1: calc(var(--h) * var(--tan20) / var(--cos20));
+    --keyboard-bottom-color: #fff;
+    --keyboard-bottom-border: 2px solid #333;
+}
+@media screen and (aspect-ratio > 3) {
+    :root {
+        --keyboard-y: 60vh;
+        --keyboard-x: calc(60vh / 5 * 16);
+    }
+}
+body {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    perspective: 100vw;
+    transform-style: preserve-3d;
+}
+
+.tips {
+    z-index: 6666;
+    font-size: 16px;
+    padding: 1em;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 10vh);
+    background-color: rgba(0, 0, 0, .9);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.tips.disappear { display: none; }
+.tips__btn {
+    display: inline-block;
+    padding: .5em 1em;
+    background-color: blueviolet;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.tips__btn:hover {
+    background-color: hotpink;
+    transform: scale(1.1);
+}
+
+.keyboard, .keyboard-bottom, .key, .key-surface { transform-style: preserve-3d; }
+.keyboard {
+    width: var(--keyboard-x);
+    height: var(--keyboard-y);
+    transition: all .1s;
+}
+.keyboard__bottom {
+    position: absolute;
+    background-color: var(--keyboard-bottom-color);
+    border: var(--keyboard-bottom-border);
+    opacity: .6;
+}
+.keyboard__bottom.top {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(calc(var(--h) * -1 - .5em))
+}
+.keyboard__bottom.bottom {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(calc(var(--h) * -1 - var(--keyboard-bottom-z) - .5em))
+}
+.keyboard__bottom.left {
+    height: 100%;
+    width: var(--keyboard-bottom-z);
+    transform: translate3d(calc(var(--keyboard-bottom-z) / 2 * -1), 0, calc(var(--h) * -1 - var(--keyboard-bottom-z) / 2 - .5em)) rotateY(90deg);
+}
+.keyboard__bottom.right {
+    right: 0;
+    height: 100%;
+    width: var(--keyboard-bottom-z);
+    transform: translate3d(calc(var(--keyboard-bottom-z) / 2), 0, calc(var(--h) * -1 - var(--keyboard-bottom-z) / 2 - .5em)) rotateY(90deg);
+}
+.keyboard__bottom.front {
+    bottom: 0;
+    width: 100%;
+    height: var(--keyboard-bottom-z);
+    transform: translate3d(0, calc(var(--keyboard-bottom-z) / 2), calc(var(--h) * -1 - var(--keyboard-bottom-z) / 2 - .5em)) rotateX(-90deg);
+}
+.keyboard__bottom.back {
+    width: 100%;
+    height: var(--keyboard-bottom-z);
+    transform: translate3d(0, calc(var(--keyboard-bottom-z) / 2 * -1), calc(var(--h) * -1 - var(--keyboard-bottom-z) / 2 - .5em)) rotateX(90deg);
+}
+.keyboard__bottom.front .logo {
+    float: right;
+    padding-right: 1em;
+    color: blueviolet;
+    font-size: calc(1vw + 0.5em);
+    font-weight: bold;
+    font-style: italic;
+    line-height: var(--keyboard-bottom-z);
+}
+
+/* 标准按键设置 */
+.key {
+    width: var(--key-x);
+    height: var(--key-x);
+    float: left;
+}
+.key.active {
+    transform: translateZ(-0.5em) scale(.9);
+}
+.key-surface {
+    position: absolute;
+    margin-left: calc(var(--key-x) * .15);
+    margin-top: calc(var(--key-x) * .13);
+}
+.key-surface.top {
+    width: var(--x);
+    height: var(--x);
+    background-image: linear-gradient(135deg, #aaa, #fff);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #000;
+    font-size: calc(var(--x) * .33);
+    font-weight: bold;
+}
+.key-surface.top .alpha { font-size: calc(var(--x) * .6) }
+.key-surface.front {
+    border-top: none;
+    width: calc(var(--x) + var(--short0) * 2);
+    border-left: calc(var(--short0)) solid transparent;
+    border-right: calc(var(--short0)) solid transparent;
+    border-bottom: var(--slope1) solid #666;
+    top: calc(var(--x) - var(--slope1) / 2);
+    transform: rotateX(-70deg) translate3d(calc(var(--short0) * -1), calc(var(--slope1) / 2), 0);
+}
+.key-surface.back {
+    border-top: none;
+    width: calc(var(--x) + var(--short0) * 2);
+    border-left: calc(var(--short0)) solid transparent;
+    border-right: calc(var(--short0)) solid transparent;
+    border-bottom: var(--slope0) solid #aaa;
+    transform-origin: top center;
+    transform: rotateZ(180deg) translateX(var(--short0)) rotateX(-80deg);
+}
+.key-surface.left {
+    border-top: none;
+    width: calc(var(--x) + var(--short0) + var(--short1));
+    border-left: calc(var(--short0)) solid transparent;
+    border-right: calc(var(--short1)) solid transparent;
+    border-bottom: var(--slope0) solid #888;
+    transform-origin: top left;
+    transform: rotateZ(90deg) translateX(calc(var(--short0) * -1)) rotateX(-80deg);
+}
+.key-surface.right {
+    border-top: none;
+    width: calc(var(--x) + var(--short0) + var(--short1));
+    border-left: calc(var(--short0)) solid transparent;
+    border-right: calc(var(--short1)) solid transparent;
+    border-bottom: var(--slope0) solid #555;
+    left: var(--x);
+    transform-origin: top left;
+    transform: rotateZ(90deg) translateX(calc(var(--short0) * -1)) rotateX(-100deg);
+}
+/* 长按键设置 */
+.key.key--2 { width: calc(var(--key-x) * 2); }
+.key.key--2 .key-surface.top { width: calc(var(--key-x) * 1.7); }
+.key.key--2 .key-surface.front, .key.key--2 .key-surface.back {
+    width: calc(var(--key-x) * 1.7 + var(--short0) * 2);
+}
+.key.key--2 .key-surface.right { left: calc(var(--key-x) * 1.7); }
+
+.key.key--1-5 { width: calc(var(--key-x) * 1.5); }
+.key.key--1-5 .key-surface.top { width: calc(var(--key-x) * 1.2); }
+.key.key--1-5 .key-surface.front, .key.key--1-5 .key-surface.back {
+    width: calc(var(--key-x) * 1.2 + var(--short0) * 2);
+}
+.key.key--1-5 .key-surface.right { left: calc(var(--key-x) * 1.2); }
+
+.key.key--1-7 { width: calc(var(--key-x) * 1.7); }
+.key.key--1-7 .key-surface.top { width: calc(var(--key-x) * 1.4); }
+.key.key--1-7 .key-surface.front, .key.key--1-7 .key-surface.back {
+    width: calc(var(--key-x) * 1.4 + var(--short0) * 2);
+}
+.key.key--1-7 .key-surface.right { left: calc(var(--key-x) * 1.4); }
+
+.key.key--2-3 { width: calc(var(--key-x) * 2.3); }
+.key.key--2-3 .key-surface.top { width: calc(var(--key-x) * 2); }
+.key.key--2-3 .key-surface.front, .key.key--2-3 .key-surface.back {
+    width: calc(var(--key-x) * 2 + var(--short0) * 2);
+}
+.key.key--2-3 .key-surface.right { left: calc(var(--key-x) * 2); }
+
+.key.key--1-3 { width: calc(var(--key-x) * 1.3); }
+.key.key--1-3 .key-surface.top { width: calc(var(--key-x) * 1); }
+.key.key--1-3 .key-surface.front, .key.key--1-3 .key-surface.back {
+    width: calc(var(--key-x) * 1 + var(--short0) * 2);
+}
+.key.key--1-3 .key-surface.right { left: calc(var(--key-x) * 1); }
+
+.key.key--6-1 { width: calc(var(--key-x) * 6.1); }
+.key.key--6-1 .key-surface.top { width: calc(var(--key-x) * 5.8); }
+.key.key--6-1 .key-surface.front, .key.key--6-1 .key-surface.back {
+    width: calc(var(--key-x) * 5.8 + var(--short0) * 2);
+}
+.key.key--6-1 .key-surface.right { left: calc(var(--key-x) * 5.8); }
+
+/* 箭头 */
+.arrow-up {
+    border-top: none;
+    border-left: calc(var(--x) * .3 / 2) solid transparent;
+    border-right: calc(var(--x) * .3 / 2) solid transparent;
+    border-bottom: calc(var(--x) * .3) solid #000;
+}
+.arrow-left {
+    border-left: none;
+    border-top: calc(var(--x) * .3 / 2) solid transparent;
+    border-bottom: calc(var(--x) * .3 / 2) solid transparent;
+    border-right: calc(var(--x) * .3) solid #000;
+}
+.arrow-down {
+    border-bottom: none;
+    border-left: calc(var(--x) * .3 / 2) solid transparent;
+    border-right: calc(var(--x) * .3 / 2) solid transparent;
+    border-top: calc(var(--x) * .3) solid #000;
+}
+.arrow-right {
+    border-right: none;
+    border-top: calc(var(--x) * .3 / 2) solid transparent;
+    border-bottom: calc(var(--x) * .3 / 2) solid transparent;
+    border-left: calc(var(--x) * .3) solid #000;
+}

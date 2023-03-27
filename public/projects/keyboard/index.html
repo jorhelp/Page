@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./keyboard.css">
+    <script src="./keyboard.js" defer></script>
+    <title>Keyboard</title>
+</head>
+<body>
+    <div class="tips">
+        <p>Can be dragged with mouse and finger.</p>
+        <p>Try pressing a key on your keyboard.</p>
+        <div class="tips__btn">ok</div>
+    </div>
+    <div class="keyboard">
+        <div class="keyboard__bottom top"></div>
+        <div class="keyboard__bottom bottom"></div>
+        <div class="keyboard__bottom left"></div>
+        <div class="keyboard__bottom right"></div>
+        <div class="keyboard__bottom front">
+            <a href="//jorhelp.top" target="_blank" class="logo">By Jorhelp</a>
+        </div>
+        <div class="keyboard__bottom back"></div>
+
+        <!-- 第一行 -->
+        <div class="key" data-key="Escape">
+            <div class="key-surface top">
+                <p>ESC</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="1 !">
+            <div class="key-surface top">
+                <p>!</p>
+                <p>1</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="2 @">
+            <div class="key-surface top">
+                <p>@</p>
+                <p>2</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="3 #">
+            <div class="key-surface top">
+                <p>#</p>
+                <p>3</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="4 $">
+            <div class="key-surface top">
+                <p>$</p>
+                <p>4</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="5 %">
+            <div class="key-surface top">
+                <p>%</p>
+                <p>5</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="6 ^">
+            <div class="key-surface top">
+                <p>^</p>
+                <p>6</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="7 &">
+            <div class="key-surface top">
+                <p>&</p>
+                <p>7</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="8 *">
+            <div class="key-surface top">
+                <p>*</p>
+                <p>8</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="9 (">
+            <div class="key-surface top">
+                <p>(</p>
+                <p>9</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="0 )">
+            <div class="key-surface top">
+                <p>)</p>
+                <p>0</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="_ -">
+            <div class="key-surface top">
+                <p>_</p>
+                <p>-</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="+ =">
+            <div class="key-surface top">
+                <p>+</p>
+                <p>=</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--2" data-key="Backspace">
+            <div class="key-surface top">
+                <p>BACKSPACE</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="` ~">
+            <div class="key-surface top">
+                <p>~</p>
+                <p>`</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+
+        <!-- 第二行 -->
+        <div class="key key--1-5" data-key="Tab">
+            <div class="key-surface top">
+                <p>TAB</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="q Q">
+            <div class="key-surface top">
+                <p class="alpha">Q</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="w W">
+            <div class="key-surface top">
+                <p class="alpha">W</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="e E">
+            <div class="key-surface top">
+                <p class="alpha">E</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="r R">
+            <div class="key-surface top">
+                <p class="alpha">R</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="t T">
+            <div class="key-surface top">
+                <p class="alpha">T</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="y Y">
+            <div class="key-surface top">
+                <p class="alpha">Y</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="u U">
+            <div class="key-surface top">
+                <p class="alpha">U</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="i I">
+            <div class="key-surface top">
+                <p class="alpha">I</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="o O">
+            <div class="key-surface top">
+                <p class="alpha">O</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="p P">
+            <div class="key-surface top">
+                <p class="alpha">P</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="{ [">
+            <div class="key-surface top">
+                <p>{</p>
+                <p>[</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="} ]">
+            <div class="key-surface top">
+                <p>}</p>
+                <p>]</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--1-5" data-key="| \">
+            <div class="key-surface top">
+                <p>|</p>
+                <p>\</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="Delete">
+            <div class="key-surface top">
+                <p>DEL</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+
+        <!-- 第三行 -->
+        <div class="key key--1-7" data-key="CapsLock">
+            <div class="key-surface top">
+                <p>CAPSLOCK</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="a A">
+            <div class="key-surface top">
+                <p class="alpha">A</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="s S">
+            <div class="key-surface top">
+                <p class="alpha">S</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="d D">
+            <div class="key-surface top">
+                <p class="alpha">D</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="f F">
+            <div class="key-surface top">
+                <p class="alpha">F</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="g G">
+            <div class="key-surface top">
+                <p class="alpha">G</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="h H">
+            <div class="key-surface top">
+                <p class="alpha">H</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="j J">
+            <div class="key-surface top">
+                <p class="alpha">J</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="k K">
+            <div class="key-surface top">
+                <p class="alpha">K</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="l L">
+            <div class="key-surface top">
+                <p class="alpha">L</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key=": ;">
+            <div class="key-surface top">
+                <p>:</p>
+                <p>;</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key='&#34; &#39;'>
+            <div class="key-surface top">
+                <p>"</p>
+                <p>'</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--2-3" data-key="Enter">
+            <div class="key-surface top">
+                <p>ENTER</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="PageUp">
+            <div class="key-surface top">
+                <p>PGUP</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+
+        <!-- 第四行 -->
+        <div class="key key--2-3" data-key="ShiftLeft">
+            <div class="key-surface top">
+                <p>SHIFT</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="z Z">
+            <div class="key-surface top">
+                <p class="alpha">Z</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="x X">
+            <div class="key-surface top">
+                <p class="alpha">X</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="c C">
+            <div class="key-surface top">
+                <p class="alpha">C</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="v V">
+            <div class="key-surface top">
+                <p class="alpha">V</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="b B">
+            <div class="key-surface top">
+                <p class="alpha">B</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="n N">
+            <div class="key-surface top">
+                <p class="alpha">N</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="m M">
+            <div class="key-surface top">
+                <p class="alpha">M</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="&lt; ,">
+            <div class="key-surface top">
+                <p><</p>
+                <p>,</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="&gt; .">
+            <div class="key-surface top">
+                <p>></p>
+                <p>.</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="? /">
+            <div class="key-surface top">
+                <p>?</p>
+                <p>/</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--1-7" data-key="ShiftRight">
+            <div class="key-surface top">
+                <p>SHIFT</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="ArrowUp">
+            <div class="key-surface top">
+                <p class="arrow-up"></p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="PageDown">
+            <div class="key-surface top">
+                <p>PGDN</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+
+        <!-- 第五行 -->
+        <div class="key key--1-3" data-key="ControlLeft">
+            <div class="key-surface top">
+                <p>CTRL</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--1-3" data-key="OSLeft">
+            <div class="key-surface top">
+                <p>WIN</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--1-3" data-key="AltLeft">
+            <div class="key-surface top">
+                <p>ALT</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key key--6-1" data-key="Space">
+            <div class="key-surface top">
+                <p></p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="AltRight">
+            <div class="key-surface top">
+                <p>ALT</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key">
+            <div class="key-surface top">
+                <p>FN</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="ControlRight">
+            <div class="key-surface top">
+                <p>CTRL</p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="ArrowLeft">
+            <div class="key-surface top">
+                <p class="arrow-left"></p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="ArrowDown">
+            <div class="key-surface top">
+                <p class="arrow-down"></p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+        <div class="key" data-key="ArrowRight">
+            <div class="key-surface top">
+                <p class="arrow-right"></p>
+            </div>
+            <div class="key-surface front"></div>
+            <div class="key-surface back"></div>
+            <div class="key-surface left"></div>
+            <div class="key-surface right"></div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <template>
-    <div class="blog" v-infinite-scroll="load">
-        <a v-for="blog of current" :key="blog.title" :href="blog.url" target="_blank" class="card">
+    <div class="blog">
+        <a v-for="blog of blogs" :key="blog.title" :href="blog.url" target="_blank" class="card">
             <div class="background" :style="`background-image: url('${blog.img}');`"></div>
             <div class="img">
                 <img :src="blog.img" alt="">
@@ -15,16 +15,15 @@
                 </div>
             </div>
         </a>
+        <a href="/projects/keyboard/index.html" target="_blank">test</a>
     </div>
 </template>
 
 
 <script setup>
-import { ref } from 'vue'
 import { Calendar } from '@element-plus/icons-vue'
 
 
-const current = ref([])
 const blogs = [
     {
         img: '/img/blog/ingram.webp',
@@ -63,11 +62,6 @@ const blogs = [
         url: 'https://www.biorxiv.org/content/10.1101/2021.07.30.454403v2.abstract',
     },
 ]
-function load() {
-    if (blogs.length !== 0) {
-        current.value.push(blogs.shift())
-    }
-}
 </script>
 
 
