@@ -13,7 +13,6 @@
         <transition name="zoom">
             <app-content v-show="appStore.isAppContentShow" />
         </transition>
-
         <msg class="msg" />
     </div>
 </template>
@@ -105,5 +104,6 @@ const appStore = useAppStore()
         left: 3%;
         transform: translateY(@phone-border-radius * .9);
     }
+
 }
 </style>

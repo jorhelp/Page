@@ -93,6 +93,8 @@ const apps = [
         name: '博客',
         icon: iconBaseUrl + 'podcasts-192x192-2365243.png',
         position: POSITION.b1,
+        msg: ['新的博客'],
+        content: {name: 'blog'}
     }),
     new JApp({
         name: '健康',

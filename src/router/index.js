@@ -41,6 +41,11 @@ const routes = [
                 path: 'zhifubao',
                 component: () => import('../pages/ZhiFuBao.vue')
             },
+            {
+                name: 'blog',
+                path: 'blog',
+                component: () => import('../pages/Blog.vue')
+            },
         ]
     }
 ]

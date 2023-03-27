@@ -17,9 +17,9 @@
 .el-empty {
     height: 100%;
     width: 100%;
+
     .icon {
         font-size: 1.3rem;
     }
 }
-
 </style>
