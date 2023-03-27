@@ -17,6 +17,11 @@ const routes = [
                 component: () => import('../pages/Default.vue')
             },
             {
+                name: 'loading',
+                path: 'loading',
+                component: () => import('../pages/AppLoading.vue')
+            },
+            {
                 name: 'image',
                 path: 'image',
                 component: () => import('../pages/Image.vue')

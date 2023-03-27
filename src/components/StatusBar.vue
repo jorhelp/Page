@@ -41,6 +41,7 @@ function renderCellular() {
     cellularItems.value.forEach(($dom, idx) => {
         if ((idx + 1) <= barStore.cellular)
             $dom.classList.add('active')
+        else $dom.classList.remove('active')
     })
 }
 
@@ -49,6 +50,8 @@ function renderBattery() {
     $dom.style.width = `${barStore.battery}%`
     if (barStore.battery > 97) $dom.classList.add('full')
     else $dom.classList.remove('full')
+    if (barStore.battery < 35) $dom.classList.add('low')
+    else $dom.classList.remove('low')
 }
 
 onMounted(() => {
@@ -74,7 +77,7 @@ onMounted(() => {
 
     .time {
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .msg-icon {
@@ -158,7 +161,7 @@ onMounted(() => {
 
             .battery-padding {
                 height: 100%;
-                width: 30%;
+                width: 100%;
                 background-color: var(--status-bar-color);
 
                 &.low {

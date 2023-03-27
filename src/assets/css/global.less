@@ -126,15 +126,15 @@ a {
 
 
 // vue transition
-.app-enter-active {
-    animation: app-in 0.5s ease-in;
+.zoom-enter-active {
+    animation: zoom-in 0.5s ease-in;
 }
 
-.app-leave-active {
-    animation: app-in 0.5s linear reverse;
+.zoom-leave-active {
+    animation: zoom-in 0.5s linear reverse;
 }
 
-@keyframes app-in {
+@keyframes zoom-in {
     0% {
         transform: scale(0);
         border-radius: @phone-border-radius;
@@ -147,5 +147,23 @@ a {
     100% {
         transform: scale(1);
         border-radius: 0;
+    }
+}
+
+.drop-enter-active {
+    animation: drop-in 0.5s ease-in;
+}
+
+.drop-leave-active {
+    animation: drop-in 0.5s linear reverse;
+}
+
+@keyframes drop-in {
+    0% {
+        height: 0;
+        transform: scaleY(0);
+    }
+
+    100% {
     }
 }

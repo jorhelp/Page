@@ -1,7 +1,7 @@
 <template>
     <div class="app__content__container">
-        <el-button @click="handleClose" type="danger" :icon="Close" size="small" circle />
-        <el-scrollbar height="100%" min-size="100">
+        <el-button @click="handleCloseClick" type="danger" :icon="Close" size="small" circle />
+        <el-scrollbar height="100%" :min-size="100">
             <div class="app__content">
                 <router-view></router-view>
             </div>
@@ -12,21 +12,7 @@
 
 <script setup>
 import { Close } from '@element-plus/icons-vue'
-import useAppStore from '../store/japp'
-import { useRouter } from 'vue-router'
-
-
-const appStore = useAppStore()
-const router = useRouter()
-
-function handleClose() {
-    // 关闭 app 盒子
-    appStore.toggleAppContent(false)
-    // 颜色变回去
-    document.querySelector(':root').classList.remove('invert')
-    // 路由退回去
-    router.back()
-}
+import { handleCloseClick } from '../mixin'
 </script>
 
 

@@ -1,5 +1,7 @@
 <template>
     <div class="img-container">
+        <h2>照片</h2>
+
         <el-image v-for="url in urls" :key="url" :src="url" lazy>
             <template #placeholder>
                 <div class="loading-container">
@@ -7,12 +9,23 @@
                 </div>
             </template>
         </el-image>
+
+        <div class="end">
+            - the
+            <el-icon>
+                <sugar />
+            </el-icon>
+            end -
+        </div>
     </div>
 </template>
 
 
 <script setup>
 import Loading from '../components/Loading.vue'
+import { Sugar } from '@element-plus/icons-vue'
+
+
 const urls = [
     '/img/photo-wall/1.jpg',
     '/img/photo-wall/2.jpg',
@@ -32,6 +45,7 @@ const urls = [
 <style lang="less" scoped>
 .img-container {
     min-height: 100%;
+    padding-bottom: 5rem;
 
     .el-image {
         display: block;
@@ -47,6 +61,12 @@ const urls = [
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .end {
+        margin: 3rem;
+        text-align: center;
+        font-size: 1.2rem;
     }
 }
 </style>

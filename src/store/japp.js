@@ -34,7 +34,7 @@ const apps = [
         name: '照片',
         icon: iconBaseUrl + 'photos-128x128-2365244.png',
         position: POSITION.b1,
-        msg: ['test'],
+        msg: ['有新的照片'],
         content: {name: 'image'}
     }),
     new JApp({
@@ -182,15 +182,20 @@ const useAppStore = defineStore('app', {
         position: POSITION,
         apps,
         isAppContentShow: false,
+        msgApp: null,
     }),
     actions: {
         toggleAppContent(val = undefined) {
             if (val) this.isAppContentShow = val
             else this.isAppContentShow = !this.isAppContentShow
         },
+        setMsgApp(app) {
+            this.msgApp = app
+        },
     },
     getters: {
-        appWithMsg: state => state.apps.filter(app => app.msg.length !== 0)
+        appWithMsg: state => state.apps.filter(app => app.msg.length !== 0),
+        isMsgShow: state => state.msgApp !== null,
     }
 })
 

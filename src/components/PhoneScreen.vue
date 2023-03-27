@@ -4,12 +4,17 @@
         <div class="bg__item bg__item--2"></div>
     </div>
     <div class="fg">
+        <!-- 三个固定可见区域 -->
         <status-bar />
         <desktop class="desktop" />
         <dock />
-        <transition name="app">
+
+        <!-- 其他动态区域 -->
+        <transition name="zoom">
             <app-content v-show="appStore.isAppContentShow" />
         </transition>
+
+        <msg class="msg" />
     </div>
 </template>
 
@@ -19,6 +24,7 @@ import StatusBar from './StatusBar.vue'
 import Desktop from './Desktop.vue'
 import Dock from './Dock.vue'
 import AppContent from './AppContent.vue'
+import Msg from './Msg.vue'
 import useAppStore from '../store/japp'
 
 
@@ -95,14 +101,9 @@ const appStore = useAppStore()
     font-size: 1rem;
     grid-template-rows: @phone-border-radius 1fr calc(var(--app-width) * 1.2);
 
-    .app-content {
-        .absolute;
-        z-index: 66;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #fff;
+    .msg {
+        left: 3%;
+        transform: translateY(@phone-border-radius * .9);
     }
 }
 </style>
