@@ -31,7 +31,7 @@ export function handleAppClick(app) {
     document.querySelector(':root').classList.add('invert')
     // 设置路由填充盒子 (先放个加载页面，等盒子完全撑开再放内容页面)
     router.push({ name: 'loading' })
-    setTimeout(() => router.replace(app.content), 500)
+    setTimeout(() => router.push(app.content), 500)
 }
 
 export function handleCloseClick() {
@@ -42,6 +42,7 @@ export function handleCloseClick() {
     document.querySelector(':root').classList.remove('invert')
     // 路由退回去
     setTimeout(() => {
+        router.back()
         router.back()
     }, 500)
 }
