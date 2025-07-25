@@ -32,9 +32,9 @@ const appStore = useAppStore()
     overflow: hidden;
 
     color: #fff;
-    background-color: rgba(123, 123, 123, 0.9);
+    background-color: rgba(84, 84, 84, 0.9);
     backdrop-filter: blur(3px);
-    border-radius: @height * .25;
+    border-radius: @height * .3;
 
     box-sizing: border-box;
     padding: @padding;

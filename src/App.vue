@@ -25,22 +25,19 @@ onMounted(() => {
         const previousTransition = appDrag.$target.style.transition
         const delay = 2
         appDrag.$target.style.transition = `all ${delay}s`
-        appDrag.rotate(-2000, -1000)
-        setTimeout(() => appDrag.rotate(2000, -1000), 1000 * delay * 1)
-        setTimeout(() => appDrag.rotate(3000, 1800), 1000 * delay * 2)
-        setTimeout(() => appDrag.rotate(4000, 200), 1000 * delay * 3)
-        setTimeout(() => appDrag.rotate(6000, 0), 1000 * delay * 4)
-        setTimeout(() => appDrag.$target.style.transition = previousTransition, 1000 * delay * 5)
+        appDrag.rotate(-3000, -500)
+        setTimeout(() => appDrag.rotate(3000, 500), 1000 * delay * 1)
+        setTimeout(() => appDrag.$target.style.transition = previousTransition, 1000 * delay * 2)
 
-        setTimeout(() => appDrag.run(), 1000 * delay * 5)  // 这里不是6，因为立即拖拽，不是延时后拖拽
+        setTimeout(() => appDrag.run(), 1000 * delay * 2)  // 这里不是6，因为立即拖拽，不是延时后拖拽
         // msg
         setTimeout(() => {
             appStore.setMsgApp(app1)
             app1.msg.push('拖动空白区域可旋转机身')
-        }, 1000 * delay * 5)
+        }, 1000 * delay * 1)
     } else {
         appStore.setMsgApp(app1)
-        app1.msg.push('您已更新到 JOS 1.0!')
+        app1.msg.push('您已更新到 JOS 18.0!')
     }
     // statusBar
     setInterval(() => {

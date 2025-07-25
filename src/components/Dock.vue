@@ -19,7 +19,7 @@ const appStore = useAppStore()
 .dock {
     margin: 0 1em 1em;
     border-radius: calc(var(--app-width) / 3);
-    background-color: rgba(209, 209, 209, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(1em);
     display: flex;
     justify-content: space-between;

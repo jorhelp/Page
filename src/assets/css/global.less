@@ -3,7 +3,7 @@
 @phone-width: (@phone-height / @phone-ratio);
 @phone-thick: (@phone-width / 10);
 @phone-border-radius: (@phone-width / 7.5);
-@phone-border-screen-width: (@phone-width / 40);
+@phone-border-screen-width: (@phone-width / 60);
 @phone-border-screen: @phone-border-screen-width solid #333;
 @phone-border-back: (@phone-width / 150) solid #eee;
 @phone-antenna-color: #b5b5b5;
@@ -23,8 +23,8 @@
     --app-container-padding-y: calc(var(--phone-height) * .03);
     --app-width: calc((var(--phone-width) * .9 - var(--phone-border-screen-width) * 2) / 4);
     --bg-color: hsl(0, 15%, 90%);
-    --bg__item-color1: hsla(264, 93%, 76%, 0.541);
-    --bg__item-color2: hsl(350, 90%, 70%);
+    --bg__item-color1: hsla(223, 100%, 70%, 0.541);
+    --bg__item-color2: hsla(6, 98%, 67%, 0.674);
     --status-bar-color: #fff;
 
     @media screen and (min-width: 440px) {
@@ -70,8 +70,8 @@ a {
 }
 
 .el-badge__content {
-    height: 2.4vh;
-    width: 2.4vh;
+    height: 2.2vh;
+    width: 2.2vh;
     border-radius: 50%;
     padding: 0;
 }

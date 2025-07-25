@@ -4,10 +4,15 @@
         <div class="bg__item bg__item--2"></div>
     </div>
     <div class="fg">
-        <!-- 三个固定可见区域 -->
+        <!-- 固定可见区域 -->
+        <div class="front-camera">
+            <img class="front-camera__audio" src="/img/audio-wave.gif" alt="">
+            <img class="front-camera__airpods" src="/img/airpods-pro.png" alt="">
+        </div>
         <status-bar />
         <desktop class="desktop" />
         <dock />
+        <div class="slider-bar"></div>
 
         <!-- 其他动态区域 -->
         <transition name="zoom">
@@ -100,9 +105,51 @@ const appStore = useAppStore()
     font-size: 1rem;
     grid-template-rows: @phone-border-radius 1fr calc(var(--app-width) * 1.2);
 
+    .front-camera {
+        .absolute;
+        z-index: 6666;
+        width: 24%;
+        height: 3.5%;
+        background-color: black;
+        border-radius: 500px;
+        left: 38%;
+        top: .8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media screen and (min-width: 440px) {
+            top: 1.5%;
+        }
+
+        .front-camera__audio {
+            margin: 0 5%;
+            border-radius: 50%;
+            height: 80%;
+            width: auto;
+            filter: invert(100%);
+        }
+        .front-camera__airpods {
+            margin: 0 5%;
+            border-radius: 50%;
+            height: 80%;
+            width: auto;
+        }
+    }
+
     .msg {
         left: 3%;
         transform: translateY(@phone-border-radius * .9);
+    }
+
+    .slider-bar {
+        .absolute;
+        z-index: 6666;
+        width: 50%;
+        height: .8%;
+        background-color: black;
+        border-radius: 100px;
+        left: 25%;
+        bottom: .5%;
     }
 
 }
