@@ -10,7 +10,7 @@ const POSITION = {
     b5: 'body5',
     dock: 'dock',
 }
-const iconBaseUrl = '/img/'
+const iconBaseUrl = '/img/app-icons/'
 
 class JApp {
     constructor(options) {
@@ -27,24 +27,24 @@ class JApp {
 const apps = [
     new JApp({
         name: 'FaceTime通话',
-        icon: iconBaseUrl + 'facetime-192x192-1575950.png',
+        icon: iconBaseUrl + 'facetime.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '照片',
-        icon: iconBaseUrl + 'photos-128x128-2365244.png',
+        icon: iconBaseUrl + 'photos.svg',
         position: POSITION.b1,
         msg: ['有新的照片'],
         content: {name: 'image'}
     }),
     new JApp({
         name: '相机',
-        icon: iconBaseUrl + 'camera-192x192-2365232.png',
+        icon: iconBaseUrl + 'camera.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '邮件',
-        icon: iconBaseUrl + 'mail-192x192-2365225.png',
+        icon: iconBaseUrl + 'mail.svg',
         position: POSITION.b1
     }),
     new JApp({
@@ -55,32 +55,32 @@ const apps = [
     }),
     new JApp({
         name: '天气',
-        icon: iconBaseUrl + 'weather-192x192-2365236.png',
+        icon: iconBaseUrl + 'weather.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '提醒事项',
-        icon: iconBaseUrl + 'reminders-192x192-2365242.png',
+        icon: iconBaseUrl + 'reminders.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '备忘录',
-        icon: iconBaseUrl + 'notes-192x192-2365245.png',
+        icon: iconBaseUrl + 'notes.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '股票',
-        icon: iconBaseUrl + 'stocks-192x192-2365239.png',
+        icon: iconBaseUrl + 'stocks.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: '阅读',
-        icon: iconBaseUrl + 'books-192x192-2365234.png',
+        icon: iconBaseUrl + 'books.svg',
         position: POSITION.b1
     }),
     new JApp({
         name: 'AppStore',
-        icon: iconBaseUrl + 'app-store-192x192-2365235.png',
+        icon: iconBaseUrl + 'app-store.svg',
         position: POSITION.b1
     }),
     new JApp({
@@ -91,56 +91,62 @@ const apps = [
     }),
     new JApp({
         name: '博客',
-        icon: iconBaseUrl + 'podcasts-192x192-2365243.png',
+        icon: iconBaseUrl + 'podcasts.svg',
         position: POSITION.b1,
         msg: ['新的博客'],
         content: {name: 'blog'}
     }),
     new JApp({
         name: '健康',
-        icon: iconBaseUrl + 'health-192x192-2365228.png',
+        icon: iconBaseUrl + 'health.svg',
         position: POSITION.b1
+    }),
+    new JApp({
+        name: '计算器',
+        icon: iconBaseUrl + 'calculator.svg',
+        position: POSITION.b1,
+        content: {name: 'calculator'}
     }),
 
     // b2
     new JApp({
         name: 'QQ',
-        icon: iconBaseUrl + 'qq.png',
+        icon: iconBaseUrl + 'QQ.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: 'AppleTV',
-        icon: iconBaseUrl + 'apple-tv-128x128-1575940.png',
+        icon: iconBaseUrl + 'apple-tv.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: '文件',
-        icon: iconBaseUrl + 'files-128x128-2365229.png',
+        icon: iconBaseUrl + 'files.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: '查找',
-        icon: iconBaseUrl + 'find-my-128x128-1575949.png',
+        icon: iconBaseUrl + 'find-my.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: '家庭',
-        icon: iconBaseUrl + 'home-128x128-2365227.png',
+        icon: iconBaseUrl + 'home.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: '快捷指令',
-        icon: iconBaseUrl + 'my-shortcuts-128x128-1575945.png',
+        icon: iconBaseUrl + 'my-shortcuts.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: 'Safari',
-        icon: iconBaseUrl + 'safari-128x128-2365241.png',
+        icon: iconBaseUrl + 'safari.svg',
         position: POSITION.b2
     }),
     new JApp({
         name: '钱包',
-        icon: iconBaseUrl + 'wallet-128x128-2365237.png',
+        icon: iconBaseUrl + 'wallet.svg',
         position: POSITION.b2
     }),
     new JApp({
@@ -153,28 +159,28 @@ const apps = [
     // dock
     new JApp({
         name: '设置',
-        icon: iconBaseUrl + 'settings-192x192-2365240.png',
+        icon: iconBaseUrl + 'settings.svg',
         position: POSITION.dock,
         msg: ['test'],
         content: {name: 'setting'}
     }),
     new JApp({
         name: '微信',
-        icon: iconBaseUrl + 'wechat.png',
+        icon: iconBaseUrl + 'wechat.svg',
         position: POSITION.dock,
         msg: ['hi'],
         content: {name: 'wechat'}
     }),
     new JApp({
         name: '支付宝',
-        icon: iconBaseUrl + 'zhifubao.png',
+        icon: iconBaseUrl + 'zhifubao.svg',
         position: POSITION.dock,
         msg: ['hello'],
         content: {name: 'zhifubao'}
     }),
     new JApp({
         name: '音乐',
-        icon: iconBaseUrl + 'apple-music-128x128-2365226.png',
+        icon: iconBaseUrl + 'apple-music.svg',
         position: POSITION.dock
     }),
 ]

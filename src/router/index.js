@@ -46,6 +46,11 @@ const routes = [
                 path: 'blog',
                 component: () => import('../pages/Blog.vue')
             },
+            {
+                name: 'calculator',
+                path: 'calculator',
+                component: () => import('../pages/Calculator.vue')
+            },
         ]
     }
 ]

@@ -39,8 +39,8 @@ const { app, nameHide } = toRefs(props)
     // overflow: hidden;
 
     .padding {
-        background-color: #fff;
-        border-radius: calc(var(--app-width) * .15);
+        background-color: #ffffff00;
+        border-radius: calc(var(--app-width) * .13);
     }
 
     @app-name-width: 2em;
