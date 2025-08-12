@@ -3,7 +3,7 @@
         <div class="calculator">
             <!-- 显示屏 -->
             <div class="display-container">
-                <div id="display">0</div>
+                <span id="display">0</span>
             </div>
 
             <!-- 按钮区域 -->
@@ -51,7 +51,7 @@
 @ios-white: #ffffff;
 
 @shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-@button-size: 80vh * 0.09;
+@button-size: 80vh * 0.10;
 @button-gap: 80vh * 0.01;
 
 * {
@@ -67,7 +67,7 @@
         top: 0;
         left: 0;
         background-color: @ios-dark;
-        padding: @button-gap * 3;
+        padding: @button-gap * 2;
         display: flex;
         flex-direction: column;
 
@@ -83,13 +83,12 @@
             scrollbar-width: none;
 
             #display {
-                font-size: 4rem;
+                font-size: 3rem;
                 font-weight: 400;
-                text-align: right;
                 white-space: nowrap;
-                max-width: 100%;
                 line-height: 1;
                 color: @ios-white;
+                overflow: hidden;
             }
         }
 

@@ -26,6 +26,7 @@ import { handleCloseClick } from '../mixin'
     bottom: 0;
     color: #000;
     background-color: #fff;
+    //border-radius: @phone-border-radius * 0.8;
 
     .el-button {
         .absolute;
@@ -35,6 +36,7 @@ import { handleCloseClick } from '../mixin'
         width: @phone-border-radius * .5;
         height: @phone-border-radius * .5;
         font-size: @phone-border-radius * .4;
+        border-radius: 50%;
     }
 
     .app__content {

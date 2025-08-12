@@ -11,7 +11,7 @@
         </div>
         <status-bar />
         <desktop class="desktop" />
-        <dock />
+        <dock class="dock" />
         <div class="slider-bar"></div>
 
         <!-- 其他动态区域 -->
@@ -141,15 +141,24 @@ const appStore = useAppStore()
         transform: translateY(@phone-border-radius * .9);
     }
 
+    .dock {
+        @media screen and (max-width: 440px) {
+            //transform: translateY(@phone-border-radius * -0.1);
+        }
+    }
+
     .slider-bar {
         .absolute;
         z-index: 6666;
-        width: 50%;
-        height: .8%;
-        background-color: black;
+        width: 40%;
+        height: @phone-border-radius * 0.1;
+        background-color: var(--status-bar-color);
         border-radius: 100px;
-        left: 25%;
-        bottom: .5%;
+        left: 30%;
+        bottom: @phone-border-radius * 0.07;
+        @media screen and (max-width: 440px) {
+            //bottom: @phone-border-radius * 0.15;
+        }
     }
 
 }

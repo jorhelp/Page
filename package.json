@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "element-plus": "^2.3.0",
+    "element-plus": "^2.10.7",
     "moment-timezone": "^0.5.41",
     "nanoid": "^4.0.1",
     "normalize.css": "^8.0.1",

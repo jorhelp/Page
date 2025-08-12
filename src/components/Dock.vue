@@ -17,7 +17,7 @@ const appStore = useAppStore()
 
 <style lang="less" scoped>
 .dock {
-    margin: 0 1em 1em;
+    margin: 0 .9em .8em;
     border-radius: calc(var(--app-width) / 3);
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(1em);

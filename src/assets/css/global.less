@@ -35,8 +35,8 @@
     }
 
     &.invert {
-        color: #222;
-        --status-bar-color: #222;
+        color: #1c1c1c;
+        --status-bar-color: #1c1c1c;
     }
 }
 
@@ -100,6 +100,7 @@ a {
 .swiper-pagination-bullet {
     width: @phone-border-radius * .2;
     height: @phone-border-radius * .2;
+    transform: translateY(@phone-border-radius * -0.1);
 }
 
 .absolute {
@@ -126,22 +127,22 @@ a {
 
 
 // vue transition
+// rewrited by AI
+/* 动画仅保留GPU加速属性 */
 .zoom-enter-active {
-    animation: zoom-in 0.5s ease-in;
+    animation: zoom-in .5s ease-out forwards;
+    /* 改用ease-out更流畅 */
 }
 
 .zoom-leave-active {
-    animation: zoom-in 0.5s linear reverse;
+    animation: zoom-in .5s ease-in reverse forwards;
+    /* 反向动画优化 */
 }
 
 @keyframes zoom-in {
     0% {
         transform: scale(0);
-        border-radius: @phone-border-radius;
-    }
-
-    80% {
-        border-radius: @phone-border-radius;
+        border-radius: @phone-border-radius * 5; /* 初始圆角 */
     }
 
     100% {
