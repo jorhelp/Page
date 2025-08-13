@@ -76,7 +76,7 @@ function drawArc(options) {
     const $father = options.$father
     const radius = options.radius || '50px'
     const height = options.height || '50px'
-    const color = options.color || '#eee'
+    const color = options.color || '#1c1c1c'
     const count = options.count || 10
     const deg = options.deg || 90
     const classList = options.classList || []
@@ -102,7 +102,7 @@ function drawArc(options) {
         if (transZ !== '') transZ += ' + '
         if (transY !== '') transY += ' + '
         transZ += `${itemHeight} * ${Math.sin(preDeg * Math.PI / 180)}`
-        transY += `${itemHeight} * ${Math.cos(preDeg * Math.PI / 180)}`
+        transY += `${itemHeight} * ${Math.cos(preDeg * Math.PI / 180)} - .003rem`
         $item.style.transform = `translate3d(0, calc(${transY}), calc(${transZ})) rotateX(${curDeg}deg)`
 
         $dom.appendChild($item)

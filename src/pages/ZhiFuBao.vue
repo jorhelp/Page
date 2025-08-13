@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="zhifubao-pay-img">
-            <img src="/img/zhifubao-pay.jpg" alt="">
+            <img src="/img/zhifubao-pay.webp" alt="">
         </div>
         <p>
             Buy this guy a cup of coffee.

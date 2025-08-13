@@ -5,7 +5,7 @@ const routes = [
     {
         name: 'home',
         path: '/',
-        component: () => import('../pages/Default.vue')
+        component: () => import('../pages/AppLoading.vue')
     },
     {
         name: 'app-contents',
@@ -56,7 +56,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    // history: createWebHashHistory(),
+    //history: createWebHashHistory(),
     history: createWebHistory(),
     routes
 })

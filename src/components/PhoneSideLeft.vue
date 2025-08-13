@@ -25,9 +25,9 @@
     .phone-button-mute-btn {
         width: 60%;
         height: 100%;
-        background-color: #eee;
+        background-color: #333;
         box-sizing: border-box;
-        border: 1px solid #aaa;
+        border: 1px solid #666;
         border-radius: inherit;
         .absolute;
         right: 0;
@@ -36,8 +36,8 @@
 .phone-button-top, .phone-button-bottom {
     width: @phone-thick * 0.3;
     height: @phone-thick * 1.5;
-    background-color: #eee;
-    border: 1px solid #aaa;
+    background-color: #333;
+    border: 1px solid #666;
     border-radius: (@phone-thick / 8);
     .absolute;
     left: 50%;

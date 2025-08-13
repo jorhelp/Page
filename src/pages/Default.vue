@@ -16,6 +16,11 @@
     height: 100%;
     width: 100%;
 
+    img {
+        width: 5rem;
+        height: auto;
+    }
+
     .icon {
         font-size: 1.5rem;
         transform: translateY(.2rem);

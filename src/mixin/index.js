@@ -31,10 +31,8 @@ export function handleAppClick(app) {
     if (app.name != '计算器') {
         document.querySelector(':root').classList.add('invert')
     }
-    // 设置路由填充盒子 (先放个加载页面，等盒子完全撑开再放内容页面)
-    router.replace({ name: 'loading' })
+    // 设置路由填充盒子 (等盒子完全撑开再放内容页面)
     setTimeout(() => router.replace(app.content), 500)
-    //router.replace(app.content)
 }
 
 export function handleCloseClick() {

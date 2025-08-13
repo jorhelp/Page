@@ -37,9 +37,9 @@
         margin-right: @phone-thick * .1;
         width: @item-height;
         height: @item-height;
-        background-color: #eee;
+        background-color: #666;
         border-radius: 50%;
-        border: 1px solid #666;
+        border: 1px solid #eee;
         box-sizing: border-box;
     }
 

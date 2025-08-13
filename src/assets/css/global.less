@@ -6,7 +6,7 @@
 @phone-border-screen-width: (@phone-width / 60);
 @phone-border-screen: @phone-border-screen-width solid #333;
 @phone-border-back: (@phone-width / 150) solid #eee;
-@phone-antenna-color: #b5b5b5;
+@phone-antenna-color: #666;
 
 
 /* js 无法使用 less 的全局变量 */
@@ -38,6 +38,10 @@
         color: #1c1c1c;
         --status-bar-color: #1c1c1c;
     }
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 
@@ -84,6 +88,16 @@ a {
     border-radius: @phone-border-radius * .3;
 }
 
+.el-carousel__indicator--vertical .el-carousel__button {
+    width: .4rem;
+    height: .4rem;
+    border-radius: 50%;
+}
+
+.el-badge__content.is-fixed {
+    font-size: 1rem;
+}
+
 .icon {
     width: 1em;
     height: 1em;
@@ -128,42 +142,26 @@ a {
 
 // vue transition
 // rewrited by AI
-/* 动画仅保留GPU加速属性 */
+.zoom-enter-from,
+.zoom-leave-to {
+    transform: scale(0);
+    clip-path: inset(0 round @phone-border-radius * 10); // 直接border-radius 非常卡顿，使用clip-path来优化
+}
+
+.zoom-enter-to,
+.zoom-leave-from {
+    transform: scale(1);
+    clip-path: inset(0 round 0);
+}
+
 .zoom-enter-active {
-    animation: zoom-in .5s ease-out forwards;
-    /* 改用ease-out更流畅 */
+    transition:
+        transform 0.3s ease,
+        clip-path 0.5s ease;
+    will-change: transform, clip-path;
 }
 
 .zoom-leave-active {
-    animation: zoom-in .5s ease-in reverse forwards;
-    /* 反向动画优化 */
-}
-
-@keyframes zoom-in {
-    0% {
-        transform: scale(0);
-        border-radius: @phone-border-radius * 5; /* 初始圆角 */
-    }
-
-    100% {
-        transform: scale(1);
-        border-radius: 0;
-    }
-}
-
-.drop-enter-active {
-    animation: drop-in 0.5s ease-in;
-}
-
-.drop-leave-active {
-    animation: drop-in 0.5s linear reverse;
-}
-
-@keyframes drop-in {
-    0% {
-        height: 0;
-        transform: scaleY(0);
-    }
-
-    100% {}
+    transition: transform 0.3s ease;
+    will-change: transform, clip-path;
 }

@@ -9,8 +9,8 @@
     </div>
     <div class="logo">
         <img src="/img/jor-logo@200x200.png" alt="logo" class="logo-img">
-        <h1> jPhone </h1>
     </div>
+    <h1> jPhone ©jorhelp.top | by Jor </h1>
 </template>
 
 
@@ -18,8 +18,8 @@
 .camera-module {
     @width: @phone-width * .4;
     .absolute;
-    right: @phone-width * .05;
-    top: @phone-width * .05;
+    right: @phone-width * .1;
+    top: @phone-width * .1;
     width: @width * .95;
     height: @width;
 
@@ -30,7 +30,7 @@
         border-radius: 50%;
         box-sizing: border-box;
         background-color: #000;
-        border: @width * .04 solid #ccc;
+        border: @width * .04 solid #eee;
         box-shadow: 0 0 @width * 0.06 1px rgba(0, 0, 0, .6);
 
         &.camera-1 {
@@ -118,14 +118,23 @@
     text-align: center;
     color: #fff;
 
-    h1 {
-        display: block;
-        margin: 0;
-    }
 
     .logo-img {
         width: @phone-width * .25;
         height: @phone-width * .25;
     }
+
+}
+
+h1 {
+    display: block;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 100;
+    color: #eee;
+    .absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) rotateY(180deg);
 }
 </style>

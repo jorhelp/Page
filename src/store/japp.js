@@ -11,16 +11,27 @@ const POSITION = {
     dock: 'dock',
 }
 const iconBaseUrl = '/img/app-icons/'
+const APP_SIZE = {
+    normal: '',
+    _2x2: 'app--2x2',
+    _2x4: 'app--2x4',
+}
+const APP_TYPE = {
+    normal: 'normal',
+    cascade: 'cascade',    // 层叠样式
+}
+
 
 class JApp {
     constructor(options) {
         this.id = nanoid(6)
         this.name = options.name || ''
         this.icon = options.icon
-        this.size = options.size || ''
+        this.size = options.size || APP_SIZE.normal
         this.msg = options.msg || []
         this.position = options.position
         this.content = options.content || {name: 'default'}
+        this.type = options.type || APP_TYPE.normal
     }
 }
 
@@ -48,9 +59,10 @@ const apps = [
         position: POSITION.b1
     }),
     new JApp({
-        name: '小组件',
-        icon: iconBaseUrl + 'photo-2.gif',
-        size: 'app--2x2',
+        name: '照片组件',
+        icon: [iconBaseUrl + 'photo-2.gif', iconBaseUrl + 'photo-3.gif'],
+        size: APP_SIZE._2x2,
+        type: APP_TYPE.cascade,
         position: POSITION.b1
     }),
     new JApp({
@@ -84,9 +96,9 @@ const apps = [
         position: POSITION.b1
     }),
     new JApp({
-        name: '小组件',
-        icon: iconBaseUrl + 'photo-3.gif',
-        size: 'app--2x2',
+        name: '日历组件',
+        icon: null,
+        size: APP_SIZE._2x2,
         position: POSITION.b1
     }),
     new JApp({
@@ -107,8 +119,19 @@ const apps = [
         position: POSITION.b1,
         content: {name: 'calculator'}
     }),
+    new JApp({
+        name: '时间',
+        icon: iconBaseUrl + 'clock.svg',
+        position: POSITION.b1,
+    }),
 
     // b2
+    new JApp({
+        name: '运动组件',
+        icon: iconBaseUrl + 'sport.webp',
+        size: APP_SIZE._2x4,
+        position: POSITION.b2
+    }),
     new JApp({
         name: 'QQ',
         icon: iconBaseUrl + 'QQ.svg',
@@ -150,9 +173,28 @@ const apps = [
         position: POSITION.b2
     }),
     new JApp({
-        name: '小组件',
-        icon: iconBaseUrl + 'photo-1.gif',
-        size: 'app--2x4',
+        name: '联系人',
+        icon: iconBaseUrl + 'contacts.svg',
+        position: POSITION.b2
+    }),
+    new JApp({
+        name: '信息',
+        icon: iconBaseUrl + 'ios-message.svg',
+        position: POSITION.b2
+    }),
+    new JApp({
+        name: '测量',
+        icon: iconBaseUrl + 'measure.svg',
+        position: POSITION.b2
+    }),
+    new JApp({
+        name: '翻译',
+        icon: iconBaseUrl + 'translate.svg',
+        position: POSITION.b2
+    }),
+    new JApp({
+        name: '录音',
+        icon: iconBaseUrl + 'voice-memos.svg',
         position: POSITION.b2
     }),
 

@@ -1,20 +1,34 @@
 <template>
     <div :id="app.id" class="app" :class="app.size" @click="handleAppClick(app)">
-        <el-badge :value="app.msg.length === 0 ? '' : app.msg.length" :max="99">
+        <el-badge v-if="app.type == 'normal'" :value="app.msg.length === 0 ? '' : app.msg.length" :max="99">
             <div class="app-icon">
-                <img v-show="app.icon" :src="app.icon" alt="">
+                <!-- 需特殊处理 -->
+                <calendar v-if="app.name == '日历组件'" />
+                <img v-else v-show="app.icon" :src="app.icon" alt="">
             </div>
         </el-badge>
+
+        <el-carousel v-else-if="app.type == 'cascade'" class="app-icon" direction="vertical" :autoplay="true" :interval="3000">
+            <el-carousel-item v-for="item in app.icon" class="app-icon" :key="item">
+                <!-- 需特殊处理 -->
+                <calendar v-if="app.name == '日历组件'" />
+                <img v-else style="width: 100%; height: 100%;" :src="item" alt="">
+            </el-carousel-item>
+        </el-carousel>
+
+
         <div v-if="!nameHide" class="app-name">
             {{ app.name }}
         </div>
     </div>
+
 </template>
 
 
 <script setup>
 import { toRefs } from 'vue'
 import { handleAppClick } from '../mixin'
+import Calendar from './Calendar.vue'
 
 
 const props = defineProps({
@@ -47,15 +61,16 @@ const { app, nameHide } = toRefs(props)
 
     .app-name {
         height: @app-name-width;
-        transform: scale(.8);
+        font-size: .6rem;
+        padding-top: .1rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
 
     .app-icon {
-        height: calc(var(--app-width) - @app-name-width);
-        width: calc(var(--app-width) - @app-name-width);
+        height: calc(var(--app-width) - @app-name-width * .8);
+        width: calc(var(--app-width) - @app-name-width * .8);
         overflow: hidden;
         .padding
     }
@@ -65,9 +80,9 @@ const { app, nameHide } = toRefs(props)
         grid-row: span 2;
 
         .app-icon {
-            height: calc(var(--app-width) * 2 - @app-name-width);
-            width: calc(var(--app-width) * 4);
-            .padding
+            height: calc(var(--app-width) * 2 - @app-name-width * .8);
+            width: calc(var(--app-width) * 4 - @app-name-width * .8);
+            border-radius: calc(var(--phone-border-radius) * .4);
         }
     }
 
@@ -76,10 +91,11 @@ const { app, nameHide } = toRefs(props)
         grid-row: span 2;
 
         .app-icon {
-            height: calc(var(--app-width) * 2 - @app-name-width);
-            width: calc(var(--app-width) * 2 - @app-name-width);
-            .padding
+            height: calc(var(--app-width) * 2 - @app-name-width * .8);
+            width: calc(var(--app-width) * 2 - @app-name-width * .8);
+            border-radius: calc(var(--phone-border-radius) * .4);
         }
     }
 }
+
 </style>

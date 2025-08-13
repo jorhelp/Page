@@ -77,7 +77,7 @@ onMounted(() => {
 
     .time {
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .msg-icon {
@@ -124,25 +124,30 @@ onMounted(() => {
             }
 
             &:nth-child(2) {
-                height: 55%;
+                height: 65%;
             }
 
             &:nth-child(3) {
-                height: 75%;
+                height: 85%;
             }
 
             &:nth-child(4) {
-                height: 100%;
+                height: 110%;
             }
         }
     }
 
     .wifi {
-        @height: @phone-border-radius * .35;
+        @height: @phone-border-radius * .45;
         height: @height;
         width: @height;
         display: flex;
         align-items: center;
+
+        .icon {
+            height: 100%;
+            width: 100%;
+        }
     }
 
     .battery {

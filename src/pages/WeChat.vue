@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="wechat-pay-img">
-            <img src="/img/wechat-pay.png" alt="">
+            <img src="/img/wechat-pay.webp" alt="">
         </div>
         <p>
             Buy this guy a cup of coffee.
@@ -18,23 +18,23 @@
 
 <script setup>
 const supporters = [
-    '/img/wechat-supporter/a.jpg',
-    '/img/wechat-supporter/b.jpg',
-    '/img/wechat-supporter/c.jpg',
-    '/img/wechat-supporter/d.jpg',
-    '/img/wechat-supporter/e.jpg',
-    '/img/wechat-supporter/f.jpg',
-    '/img/wechat-supporter/g.jpg',
-    '/img/wechat-supporter/h.jpg',
-    '/img/wechat-supporter/i.jpg',
-    '/img/wechat-supporter/j.jpg',
-    '/img/wechat-supporter/k.jpg',
-    '/img/wechat-supporter/l.jpg',
-    '/img/wechat-supporter/m.jpg',
-    '/img/wechat-supporter/1.jpg',
-    '/img/wechat-supporter/2.jpg',
-    '/img/wechat-supporter/3.jpg',
-    '/img/wechat-supporter/4.jpg',
+    '/img/wechat-supporter/a.webp',
+    '/img/wechat-supporter/b.webp',
+    '/img/wechat-supporter/c.webp',
+    '/img/wechat-supporter/d.webp',
+    '/img/wechat-supporter/e.webp',
+    '/img/wechat-supporter/f.webp',
+    '/img/wechat-supporter/g.webp',
+    '/img/wechat-supporter/h.webp',
+    '/img/wechat-supporter/i.webp',
+    '/img/wechat-supporter/j.webp',
+    '/img/wechat-supporter/k.webp',
+    '/img/wechat-supporter/l.webp',
+    '/img/wechat-supporter/m.webp',
+    '/img/wechat-supporter/n.webp',
+    '/img/wechat-supporter/o.webp',
+    '/img/wechat-supporter/p.webp',
+    '/img/wechat-supporter/q.webp',
 ]
 </script>
 

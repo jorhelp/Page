@@ -14,8 +14,8 @@
 .phone-button-power {
     width: @phone-thick * 0.3;
     height: @phone-thick * 2.2;
-    background-color: #eee;
-    border: 1px solid #aaa;
+    background-color: #333;
+    border: 1px solid #666;
     border-radius: (@phone-thick / 8);
     .absolute;
     left: 50%;
@@ -26,8 +26,8 @@
 .phone-card-slot {
     width: @phone-thick * 0.3;
     height: @phone-thick * 2;
-    background-color: #fff;
-    border: 1px solid #eee;
+    background-color: #333;
+    border: 1px solid #666;
     border-radius: (@phone-thick / 8);
     .absolute;
     left: 50%;

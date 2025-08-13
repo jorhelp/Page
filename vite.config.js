@@ -9,6 +9,9 @@ import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 
 
 export default defineConfig({
+    server: {
+        host: '0.0.0.0'
+    },
     plugins: [
         vue(),
         // element plus

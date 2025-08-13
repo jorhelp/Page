@@ -4,7 +4,7 @@
         <el-card shadow="always">
             <template #header>
                 <div class="head">
-                    <img class="head-icon circle" src="/img/jorhelp.jpg" alt="">
+                    <img class="head-icon circle" src="/img/jorhelp.webp" alt="">
                     <span>Jorhelp</span>
                 </div>
             </template>
@@ -57,7 +57,7 @@
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-banben"></use>
                 </svg>
-                <span>JOS 1.0</span>
+                <span>JOS 18.0</span>
             </div>
             <div class="card-item">
                 <svg class="icon" aria-hidden="true">
@@ -115,13 +115,13 @@ const barStore = useBarStore()
             display: flex;
             align-items: center;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
 
             .head-icon,
             .icon {
-                width: @phone-border-radius * 1.3;
-                font-size: @phone-border-radius * .8;
-                margin-right: @phone-border-radius * .2;
+                width: 2.5rem;
+                font-size: 2.5rem;
+                margin-right: .2rem;
             }
         }
 
@@ -134,13 +134,14 @@ const barStore = useBarStore()
 
             img,
             .icon {
-                height: @height;
-                width: @height;
+                height: @height * .8;
+                width: @height * .8;
                 margin-right: @height * .3;
             }
 
             span {
                 font-size: 1rem;
+                color: #666;
             }
         }
     }

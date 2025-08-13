@@ -42,9 +42,9 @@ onMounted(() => {
             $father: document.querySelector('.phone'),
             radius: 'var(--phone-border-radius)',
             height: 'var(--phone-thick)',
-            color: '#fefefe',
+            color: '#1c1c1c',
             count: 50,
-            deg: 90,
+            deg: 93,
         }
         drawArc({
             ...commonOption,
@@ -100,7 +100,7 @@ onMounted(() => {
 
         .phone__back {
             border: @phone-border-back;
-            background-color: #f8f8f8;
+            background-color: #1c1c1c;
         }
     }
 
@@ -116,19 +116,21 @@ onMounted(() => {
     .phone__side--bottom {
         height: @phone-thick;
         width: @phone-width - @phone-border-radius * 1.9;
-        background-image: linear-gradient(to right,
-                #fff,
-                #F5F5F5,
-                #fff);
+        //background-image: linear-gradient(to right,
+        //        #fff,
+        //        #F5F5F5,
+        //        #fff);
+        background-color: #1c1c1c;
     }
 
     .phone__side--left,
     .phone__side--right {
         width: @phone-thick;
         height: @phone-height - @phone-border-radius * 1.9;
-        background-image: linear-gradient(#fff,
-                #F5F5F5,
-                #fff);
+        //background-image: linear-gradient(#fff,
+        //        #F5F5F5,
+        //        #fff);
+        background-color: #1c1c1c;
     }
 
     .phone__side--top {
