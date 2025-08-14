@@ -203,27 +203,26 @@ const apps = [
         name: '设置',
         icon: iconBaseUrl + 'settings.svg',
         position: POSITION.dock,
-        msg: ['test'],
         content: {name: 'setting'}
     }),
     new JApp({
         name: '微信',
         icon: iconBaseUrl + 'wechat.svg',
         position: POSITION.dock,
-        msg: ['hi'],
+        msg: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'],
         content: {name: 'wechat'}
     }),
     new JApp({
         name: '支付宝',
         icon: iconBaseUrl + 'zhifubao.svg',
         position: POSITION.dock,
-        msg: ['hello'],
         content: {name: 'zhifubao'}
     }),
     new JApp({
         name: '音乐',
         icon: iconBaseUrl + 'apple-music.svg',
-        position: POSITION.dock
+        position: POSITION.dock,
+        content: {name: 'music'}
     }),
 ]
 

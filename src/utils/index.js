@@ -102,7 +102,7 @@ function drawArc(options) {
         if (transZ !== '') transZ += ' + '
         if (transY !== '') transY += ' + '
         transZ += `${itemHeight} * ${Math.sin(preDeg * Math.PI / 180)}`
-        transY += `${itemHeight} * ${Math.cos(preDeg * Math.PI / 180)} - .003rem`
+        transY += `${itemHeight} * ${Math.cos(preDeg * Math.PI / 180)} - 0.01rem`
         $item.style.transform = `translate3d(0, calc(${transY}), calc(${transZ})) rotateX(${curDeg}deg)`
 
         $dom.appendChild($item)

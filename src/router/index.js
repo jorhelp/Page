@@ -51,6 +51,11 @@ const routes = [
                 path: 'calculator',
                 component: () => import('../pages/Calculator.vue')
             },
+            {
+                name: 'music',
+                path: 'music',
+                component: () => import('../pages/Music.vue')
+            },
         ]
     }
 ]

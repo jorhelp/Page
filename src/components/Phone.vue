@@ -42,9 +42,9 @@ onMounted(() => {
             $father: document.querySelector('.phone'),
             radius: 'var(--phone-border-radius)',
             height: 'var(--phone-thick)',
-            color: '#1c1c1c',
-            count: 50,
-            deg: 93,
+            color: '#272727',
+            count: 25,
+            deg: 91,
         }
         drawArc({
             ...commonOption,
@@ -100,12 +100,36 @@ onMounted(() => {
 
         .phone__back {
             border: @phone-border-back;
-            background-color: #1c1c1c;
+            background-color: #272727;
         }
     }
 
     .phone__back {
         transform: translateZ(@phone-thick * -1);
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 模拟光线在玻璃上的反射 */
+            background: 
+                linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.01) 0%,
+                    rgba(255, 255, 255, 0.09) 50%,
+                    rgba(255, 255, 255, 0.01) 100%
+                ),
+                /* 细微横向纹理：增强金属感 */
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 1px,
+                    rgba(255, 255, 255, 0.01) 1px,
+                    rgba(255, 255, 255, 0.01) 2px
+                );
+        }
     }
 
     .phone__side {
@@ -116,21 +140,14 @@ onMounted(() => {
     .phone__side--bottom {
         height: @phone-thick;
         width: @phone-width - @phone-border-radius * 1.9;
-        //background-image: linear-gradient(to right,
-        //        #fff,
-        //        #F5F5F5,
-        //        #fff);
-        background-color: #1c1c1c;
+        background: linear-gradient(135deg, #272727 0%, #4b4b4b 50%, #272727 100%);
     }
 
     .phone__side--left,
     .phone__side--right {
         width: @phone-thick;
         height: @phone-height - @phone-border-radius * 1.9;
-        //background-image: linear-gradient(#fff,
-        //        #F5F5F5,
-        //        #fff);
-        background-color: #1c1c1c;
+        background: linear-gradient(135deg, #272727 0%, #6d6d6d 50%, #272727 100%);
     }
 
     .phone__side--top {

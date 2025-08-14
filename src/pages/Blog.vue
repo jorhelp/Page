@@ -37,19 +37,19 @@ const blogs = [
         url: '/projects/keyboard/index.html',
     },
     {
-        img: '/img/blog/mass_spect.png',
+        img: '/img/blog/mass_spect.webp',
         title: 'Exploring Trial-and-Error in Deep Learning: Initial Application to Isotope Detection in Mass Spectrometry',
         date: '2024-12-12',
         url: 'https://ieeexplore.ieee.org/abstract/document/10778134',
     },
     {
-        img: '/img/blog/antibiotic.png',
+        img: '/img/blog/antibiotic.webp',
         title: 'Comprehensive profiling of antibiotic resistance genes in diverse environments and novel function discovery',
         date: '2024-02-28',
         url: 'https://www.the-innovation.org/article/doi/10.59717/j.xinn-life.2024.100054',
     },
     {
-        img: '/img/blog/binding-affinity.png',
+        img: '/img/blog/binding-affinity.webp',
         title: 'Prediction of protein-ligand binding affinity with deep learning',
         date: '2023-11-28',
         url: 'https://www.sciencedirect.com/science/article/pii/S2001037023004245',

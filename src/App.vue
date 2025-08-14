@@ -33,16 +33,21 @@ onMounted(() => {
         // msg
         setTimeout(() => {
             appStore.setMsgApp(app1)
-            app1.msg.push('拖动空白区域可旋转机身')
-        }, 1000 * delay * 1)
+            app1.msg.push('拖动网页空白区域可旋转机身')
+        }, 1000 * 4)
     } else {
-        appStore.setMsgApp(app1)
-        app1.msg.push('您已更新到 JOS 18.0!')
+        setTimeout(() => {
+            appStore.setMsgApp(app1)
+            app1.msg.push('您已更新到 JOS 18.0!')
+        }, 1000 * 4)
     }
-    // statusBar
     setInterval(() => {
-        if (barStore.battery > 0) barStore.setBattery(--barStore.battery)
+        // statusBar
+        if (barStore.battery > 0)
+            barStore.setBattery(--barStore.battery)
         barStore.setCellular(Math.floor(Math.random() * 5))
+        // msg
+            appStore.setMsgApp(null)
     }, 3000)
 })
 </script>

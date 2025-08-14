@@ -131,7 +131,7 @@ h1 {
     margin: 0;
     font-size: 1rem;
     font-weight: 100;
-    color: #eee;
+    color: rgba(255, 255, 255, 0.15);
     .absolute;
     bottom: 2rem;
     left: 50%;
