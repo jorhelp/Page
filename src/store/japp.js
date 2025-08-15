@@ -222,6 +222,7 @@ const apps = [
         name: '音乐',
         icon: iconBaseUrl + 'apple-music.svg',
         position: POSITION.dock,
+        msg: ['0', '1', '2'],
         content: {name: 'music'}
     }),
 ]
